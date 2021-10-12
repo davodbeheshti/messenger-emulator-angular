@@ -1,0 +1,20 @@
+.sidbar-component {
+    .top-secton {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+        span {
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a7a7a7;
+            font-size: 31px;
+            cursor: pointer;
+        }
+        input {
+            height: 30px;
+        }
+    }
+}

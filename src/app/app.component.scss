@@ -1,1 +1,10 @@
-.app-component-main {}
+.app-component-main {
+    margin-right: 0 !important;
+    height: 100vh;
+    .sidbar {
+        background-color: rgb(0, 88, 104);
+    }
+    .content {
+        background-color: rgb(0, 61, 72);
+    }
+}

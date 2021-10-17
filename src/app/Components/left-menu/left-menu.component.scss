@@ -1,0 +1,58 @@
+.left-menu-component {
+    height: 100vh;
+    position: absolute;
+    left: -369px;
+    top: 0;
+    width: 27%;
+    background: #37575c;
+    transition: all .2s ease;
+    z-index: 12;
+    .top-section {
+        padding: 20px;
+        background: #4895f5;
+        .section-awatar {
+            display: flex;
+            justify-content: space-between;
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                cursor: pointer;
+            }
+            .icon-save {
+                height: 30px;
+                width: 30px;
+                background: #98b3d5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                color: white;
+                cursor: pointer;
+            }
+        }
+        .information-user {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            p {
+                margin-bottom: 0;
+                display: flex;
+                flex-direction: column;
+                color: white;
+            }
+            .icon-angle {
+                height: 25px;
+                width: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                color: white;
+                font-size: 30px;
+                transition: all 0.4s ease;
+                cursor: pointer;
+            }
+        }
+    }
+}

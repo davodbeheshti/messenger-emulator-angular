@@ -1,0 +1,19 @@
+<main class="left-menu-component" [style]="openLeftMenu ? 'left : 0;' : null">
+    <div class="top-section">
+        <section class="section-awatar">
+            <img class="awatar" (click)="toggleInformationUser()" src="../../../../assets/img/awatar.png" alt="awatar">
+            <span class="icon-save">
+                <i class="fa fa-save"></i>
+            </span>
+        </section>
+        <section class="information-user ">
+            <p>
+                <span class="name-user">UserName</span>
+                <span class="phone-number">Phone Number</span>
+            </p>
+            <span class="icon-angle" (click)="toggleInformationUser()" [style]="openToggleInformationUser ? 'transform: rotate(180deg);' : null">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </section>
+    </div>
+</main>

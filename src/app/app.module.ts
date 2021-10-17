@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ContentModule } from './Components/Content/content.module';
 import { SidbarModule } from './Components/Sidbar/sidbar.module';
+import { LeftMenuModule } from './Components/left-menu/left-menu.module';
 // import { SidbarComponent } from './Components/Sidbar/sidbar/sidbar.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SidbarModule } from './Components/Sidbar/sidbar.module';
     AppRoutingModule,
     SidbarModule,
     ContentModule,
+    LeftMenuModule,
     SharedModule
   ],
   providers: [],

@@ -6,7 +6,8 @@ import { SidbarComponent } from './sidbar.component';
 
 @NgModule({
   declarations: [
-    SidbarComponent
+    SidbarComponent,
+    
   ],
   imports: [
     CommonModule

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidbar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidbarComponent implements OnInit {
 
+  @Output() clickHanbergerMenu = new EventEmitter();
   constructor() { }
-
+  
   ngOnInit(): void {
+  }
+  
+  openLeftMenu() {
+    console.log("clickSlider")
+    this.clickHanbergerMenu.emit();
   }
 
 }

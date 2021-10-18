@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LeftMenuComponent } from './left-menu.component';
+import { ListIemsToolsComponent } from './list-iems-tools/list-iems-tools.component';
 
 
 
 @NgModule({
   declarations: [
-    LeftMenuComponent
+    LeftMenuComponent,
+    ListIemsToolsComponent
   ],
   imports: [
     CommonModule

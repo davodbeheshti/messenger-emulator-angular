@@ -1,5 +1,5 @@
 <main class="left-menu-component" [style]="openLeftMenu ? 'left : 0;' : null">
-    <div class="top-section">
+    <section class="top-section">
         <section class="section-awatar">
             <img class="awatar" (click)="toggleInformationUser()" src="../../../../assets/img/awatar.png" alt="awatar">
             <span class="icon-save">
@@ -15,5 +15,6 @@
                 <i class="fa fa-angle-down"></i>
             </span>
         </section>
-    </div>
+    </section>
+    <app-list-iems-tools></app-list-iems-tools>
 </main>

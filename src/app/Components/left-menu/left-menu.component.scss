@@ -55,4 +55,46 @@
             }
         }
     }
+    .under-menu {
+        // padding: 15px;
+        height: 0;
+        overflow-y: hidden;
+        position: relative;
+        transition: all .3s ease;
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #1a1a1a8e;
+            left: 0;
+        }
+        .row-1,
+        .row-2 {
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 5px;
+            transition: all .3s ease;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+                background-color: #6f787873;
+            }
+            p {
+                margin-bottom: 0;
+            }
+            .img-user,
+            .icon-user {
+                width: 37px;
+                display: flex;
+                img {
+                    width: 35px;
+                    margin-right: 1rem;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
 }

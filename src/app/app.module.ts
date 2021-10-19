@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { ContentModule } from './Components/Content/content.module';
 import { SidbarModule } from './Components/Sidbar/sidbar.module';
 import { LeftMenuModule } from './Components/left-menu/left-menu.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { SidbarComponent } from './Components/Sidbar/sidbar/sidbar.component';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { LeftMenuModule } from './Components/left-menu/left-menu.module';
     SidbarModule,
     ContentModule,
     LeftMenuModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import { LeftMenuComponent } from './left-menu.component';
 import { ListIemsToolsComponent } from './list-iems-tools/list-iems-tools.component';
 import { CreateGroupComponent } from './list-iems-tools/create-group/create-group.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CreateChanelComponent } from './list-iems-tools/create-chanel/create-chanel.component';
 
 
 
@@ -11,7 +12,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     LeftMenuComponent,
     ListIemsToolsComponent,
-    CreateGroupComponent
+    CreateGroupComponent,
+    CreateChanelComponent
   ],
   imports: [
     CommonModule,

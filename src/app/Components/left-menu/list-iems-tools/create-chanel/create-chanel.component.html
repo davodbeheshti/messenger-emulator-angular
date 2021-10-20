@@ -1,0 +1,27 @@
+<form class="create-chanel-component" [formGroup]="form">
+    <div class="d-flex">
+        <section class="section-inputFile">
+            <input type='file' id="imageUpload" class="d-none" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadImage($event)" />
+            <div class="upload-awatar" (click)="fileInput.click()">
+                <object data="../../../../assets/svg/camera.svg" width="30" height="30"> </object>
+            </div>
+        </section>
+        <section class="section-nameGroup">
+            <mat-form-field appearance="fill">
+                <mat-label>Channel Name</mat-label>
+                <input matInput formControlName="nameChanel">
+            </mat-form-field>
+        </section>
+    </div>
+    <section class="description-chanel">
+        <mat-form-field appearance="fill">
+            <mat-label>Description (optional)</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+    </section>
+
+    <section mat-dialog-actions class="section-btns d-flex justify-content-end">
+        <button mat-button (click)="cancelModal()">Cancel</button>
+        <button mat-button (click)="createChanel()">Create</button>
+    </section>
+</form>

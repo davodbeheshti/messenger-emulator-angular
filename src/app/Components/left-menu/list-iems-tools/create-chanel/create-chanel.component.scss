@@ -1,0 +1,35 @@
+.create-chanel-component {
+    display: flex;
+    flex-direction: column;
+    .section-inputFile {
+        width: 25%;
+        .upload-awatar {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: skyblue;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+    }
+    .section-nameGroup {
+        width: 65%;
+        .mat-form-field {
+            width: 100%;
+        }
+    }
+    .section-btns {
+        button {
+            color: skyblue;
+            font-size: 17px;
+        }
+    }
+    .description-chanel {
+        .mat-form-field {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+    }
+}

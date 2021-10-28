@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ContactsComponent } from './contacts/contacts.component';
 import { CreateChanelComponent } from './create-chanel/create-chanel.component';
 import { CreateGroupComponent } from './create-group/create-group.component';
 /**
@@ -31,5 +32,12 @@ export class ListIemsToolsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       console.log(data)
     });
+  }
+
+  contacts() {
+    const dialogRef = this.dialog.open(ContactsComponent , {
+      width: '35%',
+      panelClass : 'modal-create-group',
+    })
   }
 }

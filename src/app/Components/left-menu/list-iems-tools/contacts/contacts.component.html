@@ -1,0 +1,27 @@
+<div class="contacts-component">
+    <h2 class="text-white" mat-dialog-title>Contacts</h2>
+    <section class="section-top-contacts">
+        <span>
+            <i class="fa fa-search"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="search">
+    </section>
+
+
+    <section class="section-ursers mt-3">
+        <div class="user d-flex" *ngFor="let item of users; let i = index" (click)="userActive(item)">
+            <img [src]="item.img" class="img-user" alt="">
+            <div class="specific-user ml-3">
+                <p class="name-user">{{item.name}}</p>
+                <p class="date-online mb-0">
+                    {{item.onlineDate}}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section mat-dialog-actions class="section-btns d-flex justify-content-between">
+        <button mat-button (click)="addContacts()">Add Contacts</button>
+        <button mat-button (click)="close()">Close</button>
+    </section>
+</div>

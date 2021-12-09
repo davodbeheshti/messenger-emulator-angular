@@ -1,0 +1,10 @@
+{
+    "data": [
+        { "id": 1, "name": "davodBehesti" },
+        { "id": 2, "name": "cristanoRonaldo" },
+        { "id": 3, "name": "jefBezos" },
+        { "id": 4, "name": "billGates" },
+        { "id": 5, "name": "elonMask" },
+        { "id": 6, "name": "markzakerberg" }
+    ]
+}

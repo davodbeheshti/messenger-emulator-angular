@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { IContactUser } from 'src/app/shared/modelSidbar';
+import { AddContactComponent } from './add-contact/add-contact.component';
 
 @Component({
   selector: 'app-contacts',
@@ -10,7 +11,7 @@ import { IContactUser } from 'src/app/shared/modelSidbar';
 export class ContactsComponent implements OnInit {
   users: IContactUser[] = [];
 
-  constructor(private dialogRef : MatDialogRef<ContactsComponent>) {}
+  constructor(private dialogRef : MatDialogRef<ContactsComponent> , public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.users = [
@@ -48,7 +49,13 @@ export class ContactsComponent implements OnInit {
   close() {
     this.dialogRef.close()
   }
+
   addContacts() {
-    this.dialogRef.close()
+    const dialogRef = this.dialog.open(AddContactComponent , {
+      width: '30%',
+      panelClass : 'modal-create-group',
+    })
+    this.dialogRef.close();
+  
   }
 }

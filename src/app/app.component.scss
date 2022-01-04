@@ -1,3 +1,25 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'vazir' !important;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn-project {
+    border: 1px solid #456e74ba !important;
+    color: skyblue;
+    font-weight: 400;
+}
+
 .app-component-main {
     margin-right: 0 !important;
     height: 100vh;

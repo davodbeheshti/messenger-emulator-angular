@@ -6,6 +6,7 @@ import { CreateGroupComponent } from './list-iems-tools/create-group/create-grou
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CreateChanelComponent } from './list-iems-tools/create-chanel/create-chanel.component';
 import { ContactsComponent } from './list-iems-tools/contacts/contacts.component';
+import { AddContactComponent } from './list-iems-tools/contacts/add-contact/add-contact.component';
 
 
 
@@ -15,7 +16,8 @@ import { ContactsComponent } from './list-iems-tools/contacts/contacts.component
     ListIemsToolsComponent,
     CreateGroupComponent,
     CreateChanelComponent,
-    ContactsComponent
+    ContactsComponent,
+    AddContactComponent
   ],
   imports: [
     CommonModule,

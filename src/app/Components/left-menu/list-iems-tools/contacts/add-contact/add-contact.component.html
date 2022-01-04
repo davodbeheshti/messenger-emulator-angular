@@ -1,0 +1,37 @@
+<div class="add-contacts-component" [formGroup]="form">
+    <section class="d-flex">
+        <span class="mr-2 mt-3 icon">
+            <object data="../../../../../../assets/svg/account.svg" width="20" height="20"></object>
+        </span>
+        <section class="names">
+            <div>
+                <mat-form-field appearance="fill" class="input-fild">
+                    <mat-label>FirstName</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>
+            <div class="mt-3">
+                <mat-form-field appearance="fill" class="input-fild">
+                    <mat-label>LastName</mat-label>
+                    <input matInput formControlName="lastName">
+                </mat-form-field>
+            </div>
+        </section>
+    </section>
+    <section class="mt-4 d-flex">
+        <span class="mr-2 mt-3 icon">
+            <object data="../../../../assets/svg/call.svg" width="20" height="20"> </object>
+        </span>
+        <section class="names">
+            <mat-form-field class="input-fild" appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input type="tel" formControlName="phone" value="+1" matInput placeholder="-----------">
+            </mat-form-field>
+        </section>
+    </section>
+
+    <div class="btns mt-3 d-flex justify-content-end">
+        <button class="btn-project mr-2" mat-button (click)="cancel()">CANCEL</button>
+        <button class="btn-project ml-2" mat-button (click)="create()">CREATE</button>
+    </div>
+</div>

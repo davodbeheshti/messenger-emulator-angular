@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ProjectService } from 'src/app/services/project.service';
+import * as uuid from 'uuid';
+
 
 @Component({
   selector: 'app-add-contact',
@@ -10,7 +14,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddContactComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialogRef<AddContactComponent>) { }
+  constructor(private dialogRef: MatDialogRef<AddContactComponent> , private router : Router , private service : ProjectService) { }
 
   form: FormGroup;
 
@@ -18,7 +22,7 @@ export class AddContactComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
       lastName: new FormControl(''),
-      phone: new FormControl('', Validators.required),
+      phone: new FormControl(''),
     })
   }
 
@@ -32,13 +36,22 @@ export class AddContactComponent implements OnInit {
       const data = {
         name,
         lastName,
-        phone
+        phone,
+        id : uuid.v4(),
+        totalCountMessages : 0,
+        messages : [],
+        lastSendMessage : '',
       };
       // debugger
         let arrayLocalStorage = [];
         arrayLocalStorage = JSON.parse(dataLocalStorage) || [];
         arrayLocalStorage.push(data);
         window.localStorage.setItem('user' , JSON.stringify(arrayLocalStorage));
+        this.router.navigateByUrl(`contact/${data.id}`)
+        this.service.getUser(data);
+        this.service.closeMenu();
+        this.dialogRef.close();
+        this.service.updateUsers(true);
     }
   }
 

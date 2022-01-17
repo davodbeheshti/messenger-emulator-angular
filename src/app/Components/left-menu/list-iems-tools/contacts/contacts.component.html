@@ -1,5 +1,10 @@
 <div class="contacts-component">
-    <h2 class="text-white" mat-dialog-title>Contacts</h2>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="text-white" mat-dialog-title>Contacts</h2>
+        <span (click)="closeDialog()" mat-dialog-title class="style-icon mb-0"><i class="fa fa-close"></i></span>
+    </div>
+
     <section class="section-top-contacts">
         <span>
             <i class="fa fa-search"></i>
@@ -7,15 +12,14 @@
         <input type="text" class="form-control" placeholder="search">
     </section>
 
-
     <section class="section-ursers mt-3">
-        <div class="user d-flex" *ngFor="let item of users; let i = index" (click)="userActive(item)">
-            <img [src]="item.img" class="img-user" alt="">
+        <div class="user d-flex align-items-center mt-2" *ngFor="let item of users; let i = index" (click)="userActive(item)">
+            <img src="../../../../../assets/img/user.png" class="img-user" alt="">
             <div class="specific-user ml-3">
-                <p class="name-user">{{item.name}}</p>
-                <p class="date-online mb-0">
+                <p class="name-user mb-0">{{item.name}}</p>
+                <!-- <p class="date-online mb-0">
                     {{item.onlineDate}}
-                </p>
+                </p> -->
             </div>
         </div>
     </section>
@@ -24,4 +28,5 @@
         <button class="btn-project" mat-button (click)="addContacts()">Add Contacts</button>
         <button class="btn-project" mat-button (click)="close()">Close</button>
     </section>
+
 </div>

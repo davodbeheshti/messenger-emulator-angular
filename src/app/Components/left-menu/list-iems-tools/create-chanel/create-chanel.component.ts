@@ -11,7 +11,6 @@ export class CreateChanelComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<CreateChanelComponent>) { }
 
-  
   form : FormGroup;
   ngOnInit(): void {
     this.form = new FormGroup({

@@ -5,9 +5,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
+
 let importComponentMaterial = [
   MatDialogModule,
   MatFormFieldModule,
+  MatListModule,
   MatInputModule,
   MatButtonModule,
   FormsModule,

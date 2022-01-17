@@ -1,0 +1,26 @@
+.profile-modal-component {
+    p,
+    h2 {
+        margin-bottom: 0;
+        color: white;
+    }
+    .top-specific {
+        margin-top: 1rem;
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 100px;
+        }
+    }
+    .row-line-specific {
+        height: 5px;
+        width: 100%;
+        background: #183c42;
+        display: flex;
+        border-radius: 10px;
+    }
+    .icon-title+span {
+        font-weight: 300;
+        font-size: 15px;
+    }
+}

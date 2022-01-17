@@ -1,0 +1,16 @@
+.forward-message-component {
+    .mat-list-base .mat-list-item,
+    .mat-list-base .mat-list-option {
+        display: flex;
+        height: 70px;
+        -webkit-tap-highlight-color: transparent;
+        width: 100%;
+        padding: 0;
+        align-items: center;
+    }
+    .mat-list-base .mat-list-item .mat-list-item-content-reverse,
+    .mat-list-base .mat-list-option .mat-list-item-content-reverse {
+        justify-content: space-between;
+        width: 100%;
+    }
+}

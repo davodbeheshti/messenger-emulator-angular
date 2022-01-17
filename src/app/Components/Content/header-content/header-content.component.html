@@ -1,0 +1,35 @@
+<div class="header-content-component d-flex justify-content-between">
+    <div class="specific" (click)="showProfileUser()">
+        <p>{{data.name}}</p>
+        <p class="mt-1 count-group">
+            <!-- <span>5 members ,</span>
+            <span>2 online</span> -->
+            <span>online</span>
+        </p>
+    </div>
+
+    <div class="icons-operation d-flex">
+        <span class="style-icon"><i class="fa fa-search"></i></span>
+        <span class="mx-4 style-icon"><i class="fa fa-dashboard"></i></span>
+        <div>
+            <span (click)="clickShowMenuOperation()" class="style-icon"><i class="fa fa-ellipsis-v"></i></span>
+            <ul [style]="showMenuOperation ? 'height : 130px;' : null" class="list-items-operation">
+                <li (click)="viewProfile()">
+                    <i class="fa fa-user-circle"></i>
+                    <span>View profile  </span>
+                </li>
+                <li (click)="clearHistory()">
+                    <i>
+                        <object style="width : 85%; height: 26px;" data="../../../../assets/svg/broom.svg" width="30" height="30"> </object>
+                    </i>
+                    <span>Clear history</span>
+                </li>
+                <li (click)="deleteChate()">
+                    <i class="fa fa-trash"></i>
+                    <span>Delete chate</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

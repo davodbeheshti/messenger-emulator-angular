@@ -18,7 +18,7 @@
             </div>
         </section>
     </section>
-    <section class="mt-4 d-flex">
+    <!-- <section class="mt-4 d-flex">
         <span class="mr-2 mt-3 icon">
             <object data="../../../../assets/svg/call.svg" width="20" height="20"> </object>
         </span>
@@ -28,10 +28,10 @@
                 <input type="tel" formControlName="phone" value="+1" matInput placeholder="-----------">
             </mat-form-field>
         </section>
-    </section>
+    </section> -->
 
     <div class="btns mt-3 d-flex justify-content-end">
         <button class="btn-project mr-2" mat-button (click)="cancel()">CANCEL</button>
-        <button class="btn-project ml-2" mat-button (click)="create()">CREATE</button>
+        <button class="btn-project ml-2" mat-button [disabled]="!form.valid" [style]="!form.valid ? 'opacity : 0.7;' : null" (click)="create()">CREATE</button>
     </div>
 </div>

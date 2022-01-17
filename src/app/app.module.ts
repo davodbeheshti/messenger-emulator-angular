@@ -8,10 +8,11 @@ import { ContentModule } from './Components/Content/content.module';
 import { SidbarModule } from './Components/Sidbar/sidbar.module';
 import { LeftMenuModule } from './Components/left-menu/left-menu.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainComponent } from './main/main.component';
 // import { SidbarComponent } from './Components/Sidbar/sidbar/sidbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MainComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

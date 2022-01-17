@@ -1,0 +1,59 @@
+<div class="profile-modal-component d-flex flex-column">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 mat-dialog-title>User Info</h2>
+        <span (click)="closeDialog()" mat-dialog-title class="style-icon mb-0"><i class="fa fa-close"></i></span>
+    </div>
+    <div class="d-flex align-items-center top-specific">
+        <img src="../../../../assets/img/awatar.png" width="30" height="30" alt="">
+        <p class="ml-3">{{currentUserName}}</p>
+    </div>
+
+    <div class="row-line-specific my-4">
+        <span></span>
+    </div>
+
+    <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option>
+            <div class="d-flex align-items-center">
+                <div class="icon-title">
+                    <object data="../../../../assets/svg/video-camera.svg" width="25" height="25" type=""></object>
+                </div>
+                <span class="ml-3 text-white">Video</span>
+            </div>
+        </mat-list-option>
+        <mat-list-option>
+            <div class="d-flex align-items-center">
+                <div class="icon-title">
+                    <object data="../../../../assets/svg/gallery.svg" width="25" height="25" type=""></object>
+                    <!-- <object data="../../../../assets/svg/mic.svg" width="25" height="25" type=""></object> -->
+                </div>
+                <span class="ml-3 text-white">Galery</span>
+            </div>
+        </mat-list-option>
+        <mat-list-option>
+            <div class="d-flex align-items-center">
+                <div class="icon-title">
+                    <object data="../../../../assets/svg/mic.svg" width="25" height="25" type=""></object>
+                </div>
+                <span class="ml-3 text-white">audio file</span>
+            </div>
+        </mat-list-option>
+        <mat-list-option>
+            <div class="d-flex align-items-center">
+                <div class="icon-title">
+                    <object data="../../../../assets/svg/headphone.svg" width="25" height="25" type=""></object>
+                </div>
+                <span class="ml-3 text-white">voice Messages</span>
+            </div>
+        </mat-list-option>
+        <mat-list-option>
+            <div class="d-flex align-items-center">
+                <div class="icon-title">
+                    <object data="../../../../assets/svg/document.svg" width="25" height="25" type=""></object>
+                </div>
+                <span class="ml-3 text-white">files</span>
+            </div>
+        </mat-list-option>
+    </mat-selection-list>
+
+</div>

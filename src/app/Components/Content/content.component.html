@@ -1,1 +1,88 @@
-<p>content works!</p>
+<div class="content-component">
+
+    <div class="header">
+        <app-header-content [data]="currentUser"></app-header-content>
+    </div>
+
+    <div class="body">
+        <!-- -->
+        <div *ngIf="pinMessageBox" class="pin_Edit_BoxMessage pinBoxMessage d-flex">
+            <div class="texts-box">
+                <span>Pinned message</span>
+                <p>{{messageBoxPin}}</p>
+            </div>
+            <i (click)="unPin()" class="fa fa-remove"></i>
+        </div>
+        <div [ngClass]="(item.clientMessage ? 'box-message clientMessage' : 'box-message systemMessage')" *ngFor="let item of messages;let i = index;">
+            <div class="d-flex">
+                <span (click)="openListOperation(item , i)" class="icon-operation"><i class="fa fa-ellipsis-v"></i></span>
+                <p class="text-white">{{item.message}}</p>
+                <ul [style]="showIconOperationById === item.id ? 'padding: 8px; height: 235px;' : null" class="list-items-operation">
+                    <li (click)="reply(item , i)">
+                        <i class="fa fa-reply"></i>
+                        <span>Reply</span>
+                    </li>
+                    <li (click)="edit(item , i)">
+                        <i class="fa fa-pencil"></i>
+                        <span>Edit</span>
+                    </li>
+                    <li (click)="pin(item , i)">
+                        <i class="fa fa-map-pin"></i>
+                        <span>Pin</span>
+                    </li>
+                    <li (click)="forward(item , i)">
+                        <i class="fa fa-forward"></i>
+                        <span>Forward</span>
+                    </li>
+                    <li (click)="deleted(item , i)">
+                        <i class="fa fa-trash"></i>
+                        <span>Delete</span>
+                    </li>
+                    <li>
+                        <i class="fa fa-check-circle"></i>
+                        <span>Select</span>
+                    </li>
+                </ul>
+            </div>
+            <p class="date-view">
+                <span class="date">{{item.timeMessage}} PM</span>
+                <span class="view"><i class="fa fa-check"></i></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column">
+        <div *ngIf="viewEditMessage" class="pin_Edit_BoxMessage editBoxMessage d-flex">
+            <div class="texts-box">
+                <span>Edit message</span>
+                <p>{{messageBoxEdit}}</p>
+            </div>
+            <i (click)="unViewEditMessage()" class="fa fa-remove"></i>
+        </div>
+        <div class="footer-content-component align-items-center">
+            <span class="style-icon mr-3">
+            <object data="../../../../assets/svg/attachment.svg" width="30" height="30"> </object>
+        </span>
+            <div class="send-message">
+                <textarea placeholder="Whrite a message ..." [(ngModel)]="sendMessge"></textarea>
+            </div>
+            <div class="icon-right">
+                <span class="style-icon">
+                <!-- <object data="../../../../assets/svg/grinning-face.svg" width="30" height="30"> </object> -->
+                <i class="fa fa-smile-o"></i>
+            </span>
+                <div *ngIf="!isEdit; else editMessage">
+                    <span *ngIf="sendMessge.length === 0 ; else send" class="style-icon"><i class="fa fa-headphones"></i></span>
+                    <ng-template #send>
+                        <span (click)="sendMessage()"><i class="fa fa-paper-plane"></i></span>
+                    </ng-template>
+                </div>
+                <ng-template #editMessage>
+                    <span (click)="isEditMessage()"><i class="fa fa-check"></i></span>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+
+</div>

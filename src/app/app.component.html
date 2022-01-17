@@ -1,12 +1,1 @@
-<div class="container-fluid pr-0">
-    <div class="row app-component-main">
-        <div class="col-4 sidbar">
-            <app-sidbar (clickHanbergerMenu)="clickHanbergerMenue()"></app-sidbar>
-        </div>
-        <div class="col-8 content">
-            <app-content></app-content>
-        </div>
-    </div>
-    <div *ngIf="clickOpenLeftMenu" (click)="closeLeftMenu()" class="zIndexBig" [style]="clickOpenLeftMenu ? 'opacity: 0.4; background: black;' : null"></div>
-    <app-left-menu [openLeftMenu]="clickOpenLeftMenu"></app-left-menu>
-</div>
+<router-outlet></router-outlet>

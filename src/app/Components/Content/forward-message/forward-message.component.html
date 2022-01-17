@@ -1,0 +1,16 @@
+<div class="forward-message-component">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="text-white" mat-dialog-title>User Info</h2>
+        <span (click)="closeDialog()" mat-dialog-title class="style-icon mb-0"><i class="fa fa-close"></i></span>
+    </div>
+
+    <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option (click)="clickUser(item)" *ngFor="let item of listUsersFrom_LS; let i = index;">
+            <div class="d-flex align-items-center w-100">
+                <img class="img-user" src="../../../../assets/img/user.png" alt="">
+                <p class="mb-0 ml-3">{{item.name}}</p>
+            </div>
+        </mat-list-option>
+    </mat-selection-list>
+
+</div>

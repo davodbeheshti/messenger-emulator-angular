@@ -18,12 +18,12 @@
                 <div class="d-flex">
                     <span (click)="openListOperation(item , i)" class="icon-operation"><i class="fa fa-ellipsis-v"></i></span>
                     <p class="text-white">{{item.message}}</p>
-                    <ul [style]="showIconOperationById === item.id ? 'padding: 8px; height: 235px;' : null" class="list-items-operation">
+                    <ul [style]="showIconOperationById === item.id ? 'padding: 8px; height: auto;' : null" class="list-items-operation">
                         <li (click)="reply(item , i)">
                             <i class="fa fa-reply"></i>
                             <span>Reply</span>
                         </li>
-                        <li (click)="edit(item , i)">
+                        <li *ngIf="item.clientMessage" (click)="edit(item , i)">
                             <i class="fa fa-pencil"></i>
                             <span>Edit</span>
                         </li>

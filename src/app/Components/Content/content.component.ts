@@ -25,36 +25,9 @@ export class ContentComponent implements OnInit {
   messageBoxEdit: string = '';
   timeSystem: string;
   listUserFromLS;
+  
   constructor(private route: ActivatedRoute, private router: Router,
     private cdr: ChangeDetectorRef, private service: ProjectService, public dialog: MatDialog) {
-    // this.currentUser = user.find(x => x.id === this.userId);
-    {
-      // this.users = [{
-      //   name: 'Cristiano Ronaldo',
-      //   img: '../../../../../assets/img/ronaldo.png',
-      //   onlineDate: 'last Seen 13 minuts ago',
-      //   id: '1',
-      // },
-      // {
-      //   name: 'Jef Bezos',
-      //   img: '../../../../../assets/img/jefBezos.png',
-      //   onlineDate: 'last Seen 13 minuts ago',
-      //   id: '2',
-      // },
-      // {
-      //   name: 'Bill Gates',
-      //   img: '../../../../../assets/img/billGates.png',
-      //   onlineDate: 'last Seen 13 minuts ago',
-      //   id: '3',
-      // },
-      // {
-      //   name: 'Elon Musk',
-      //   img: '../../../../../assets/img/elonMusk.png',
-      //   onlineDate: 'last Seen 13 minuts ago',
-      //   id: '4',
-      // }]
-
-    }
     this.listUserFromLS = JSON.parse(window.localStorage.getItem('user'));
     console.log(this.listUserFromLS)
     this.userId = this.route.snapshot.paramMap.get('id');

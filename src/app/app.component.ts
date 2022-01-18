@@ -8,6 +8,8 @@ import { ProjectService } from './services/project.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+
   ngOnInit(): void {
-  } 
+  }
+   
 }

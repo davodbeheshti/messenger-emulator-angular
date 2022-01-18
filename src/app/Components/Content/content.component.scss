@@ -6,12 +6,14 @@
         height: 548px;
         overflow: auto;
         .box-message {
-            padding: 8px;
-            border-radius: 5px;
-            width: 20%;
-            // max-width: 50%;
-            margin-top: 10px;
-            position: relative;
+            width: 100%;
+            .box {
+                padding: 8px;
+                border-radius: 5px;
+                margin-top: 10px;
+                position: relative;
+                width: 25%;
+            }
             .list-items-operation {
                 position: absolute;
                 width: 75%;
@@ -56,34 +58,41 @@
             }
         }
         .clientMessage {
-            border-bottom-right-radius: 0;
-            background: #389aff;
-            margin-left: auto;
-            margin-right: 20px;
+            .box {
+                border-bottom-right-radius: 0;
+                margin-left: auto;
+                margin-right: 20px;
+                background: #389aff;
+            }
             .list-items-operation {
                 background: #005868;
-                left: -140px;
+                left: -180px;
                 border-top-right-radius: 0;
             }
             .icon-operation {}
         }
         .systemMessage {
-            border-bottom-left-radius: 0;
-            background: #005260;
-            margin-left: 20px;
-            margin-right: auto;
+            .box {
+                border-bottom-left-radius: 0;
+                background: #005260;
+                margin-left: 20px;
+                display: flex;
+                flex-direction: column;
+            }
             .list-items-operation {
                 background: #005868;
-                right: -140px;
+                right: -173px;
                 border-top-left-radius: 0;
             }
             .icon-operation {}
         }
         .date-view {
             font-size: 12px;
-            position: absolute;
-            right: 7px;
-            bottom: 0;
+            padding-top: 3px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid white;
             .date {
                 color: #f7f7f7;
                 margin-right: 8px;

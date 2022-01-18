@@ -14,40 +14,42 @@
             <i (click)="unPin()" class="fa fa-remove"></i>
         </div>
         <div [ngClass]="(item.clientMessage ? 'box-message clientMessage' : 'box-message systemMessage')" *ngFor="let item of messages;let i = index;">
-            <div class="d-flex">
-                <span (click)="openListOperation(item , i)" class="icon-operation"><i class="fa fa-ellipsis-v"></i></span>
-                <p class="text-white">{{item.message}}</p>
-                <ul [style]="showIconOperationById === item.id ? 'padding: 8px; height: 235px;' : null" class="list-items-operation">
-                    <li (click)="reply(item , i)">
-                        <i class="fa fa-reply"></i>
-                        <span>Reply</span>
-                    </li>
-                    <li (click)="edit(item , i)">
-                        <i class="fa fa-pencil"></i>
-                        <span>Edit</span>
-                    </li>
-                    <li (click)="pin(item , i)">
-                        <i class="fa fa-map-pin"></i>
-                        <span>Pin</span>
-                    </li>
-                    <li (click)="forward(item , i)">
-                        <i class="fa fa-forward"></i>
-                        <span>Forward</span>
-                    </li>
-                    <li (click)="deleted(item , i)">
-                        <i class="fa fa-trash"></i>
-                        <span>Delete</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-check-circle"></i>
-                        <span>Select</span>
-                    </li>
-                </ul>
+            <div class="box">
+                <div class="d-flex">
+                    <span (click)="openListOperation(item , i)" class="icon-operation"><i class="fa fa-ellipsis-v"></i></span>
+                    <p class="text-white">{{item.message}}</p>
+                    <ul [style]="showIconOperationById === item.id ? 'padding: 8px; height: 235px;' : null" class="list-items-operation">
+                        <li (click)="reply(item , i)">
+                            <i class="fa fa-reply"></i>
+                            <span>Reply</span>
+                        </li>
+                        <li (click)="edit(item , i)">
+                            <i class="fa fa-pencil"></i>
+                            <span>Edit</span>
+                        </li>
+                        <li (click)="pin(item , i)">
+                            <i class="fa fa-map-pin"></i>
+                            <span>Pin</span>
+                        </li>
+                        <li (click)="forward(item , i)">
+                            <i class="fa fa-forward"></i>
+                            <span>Forward</span>
+                        </li>
+                        <li (click)="deleted(item , i)">
+                            <i class="fa fa-trash"></i>
+                            <span>Delete</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle"></i>
+                            <span>Select</span>
+                        </li>
+                    </ul>
+                </div>
+                <p class="date-view">
+                    <span class="date">{{item.timeMessage}} PM</span>
+                    <span class="view"><i class="fa fa-check"></i></span>
+                </p>
             </div>
-            <p class="date-view">
-                <span class="date">{{item.timeMessage}} PM</span>
-                <span class="view"><i class="fa fa-check"></i></span>
-            </p>
         </div>
     </div>
 

@@ -1,3 +1,4 @@
+import { messages } from './../../../shared/IModelProject';
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProjectService } from 'src/app/services/project.service';
@@ -13,6 +14,7 @@ export class ForwardMessageComponent implements OnInit {
   users: any[];
   dataSource : any[];
   dataMessageForward;
+  dataMessageForward : messages;
   constructor(public dialogRef: MatDialogRef<ForwardMessageComponent>, @Inject(MAT_DIALOG_DATA) data , private service : ProjectService) {
     this.listUsersFrom_LS = JSON.parse(window.localStorage.getItem('user'));
     this.dataMessageForward = data;

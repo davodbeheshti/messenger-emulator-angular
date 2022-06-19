@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { users } from 'src/app/shared/IModelProject';
 
 import { ProjectService } from '../../services/project.service'
 
@@ -13,6 +14,7 @@ export class SidbarComponent implements OnInit {
 
   @Output() clickHanbergerMenu = new EventEmitter();
   users;
+  users: users[];
   showMenuOperationById: string = '';
   listUserFromLS;
   currentUser;

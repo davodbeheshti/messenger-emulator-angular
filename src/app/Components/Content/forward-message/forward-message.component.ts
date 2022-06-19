@@ -2,6 +2,7 @@ import { messages } from './../../../shared/IModelProject';
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProjectService } from 'src/app/services/project.service';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-forward-message',
@@ -13,28 +14,30 @@ export class ForwardMessageComponent implements OnInit {
 
   users: any[];
   dataSource : any[];
-  dataMessageForward;
   dataMessageForward : messages;
   constructor(public dialogRef: MatDialogRef<ForwardMessageComponent>, @Inject(MAT_DIALOG_DATA) data , private service : ProjectService) {
-    this.listUsersFrom_LS = JSON.parse(window.localStorage.getItem('user'));
     this.dataMessageForward = data;
+    this.users = data.users;
+    this.dataMessageForward = data.forwardMessage
   }
 
   ngOnInit(): void {
-    console.log(this.listUsersFrom_LS);
+    console.log(this.users);
     console.log(this.dataMessageForward);
   }
 
   public closeDialog = () => {
     this.dialogRef.close();
   }
-
+ 
   public clickUser = (item) => {
-    const user = this.listUsersFrom_LS.find(x => x.id === item.id);
+    const user = this.users.find(x => x.id === item.id);
+    this.dataMessageForward.id = uuid.v4();
     user.messages.push(this.dataMessageForward);
     user.lastSendMessage = this.dataMessageForward.message;
-    window.localStorage.setItem('user' , JSON.stringify(this.listUsersFrom_LS));
-    this.service.updateUsers(true);
+    user.idLastMessage = this.dataMessageForward.id;
+    localStorage.setItem('users' , JSON.stringify(this.users));
+    this.service.updateUsers(user);
     this.closeDialog();
   }
 

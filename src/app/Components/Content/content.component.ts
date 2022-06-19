@@ -30,7 +30,7 @@ export class ContentComponent implements OnInit {
     private router: Router,
     private service: ProjectService,
     public dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.paramMap.get('id');
@@ -122,7 +122,7 @@ export class ContentComponent implements OnInit {
     this.showIconOperationById = item.id;
   };
 
-  public reply = (item, index) => {};
+  public reply = (item, index) => { };
 
   public edit = (item, index) => {
     this.sendMessge = item.message;
@@ -135,37 +135,26 @@ export class ContentComponent implements OnInit {
 
   public isEditMessage = () => {
     this.messages[this.indexItemActiveInEdit].message = this.sendMessge;
+    const indexUser = this.users.findIndex(x => x.id === this.currentUser.id);
     // if edit lastSendMessage
-    if (
-      this.messages[this.indexItemActiveInEdit].id ===
-      this.currentUser.idLastMessage
-    ) {
+    if (this.messages[this.indexItemActiveInEdit].id === this.currentUser.idLastMessage) {
       this.currentUser.lastSendMessage = this.sendMessge;
-      this.currentUser.messages[this.indexItemActiveInEdit].message =
-        this.sendMessge;
-      const indexUser = this.users.findIndex(
-        (x) => x.id === this.currentUser.id
-      );
+      this.currentUser.messages[this.indexItemActiveInEdit].message = this.sendMessge;
       this.users[indexUser].lastSendMessage = this.sendMessge;
-      this.users[indexUser].messages[this.indexItemActiveInEdit].message =
-        this.sendMessge;
-      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-      localStorage.setItem('users', JSON.stringify(this.users));
+      this.users[indexUser].messages[this.indexItemActiveInEdit].message = this.sendMessge;
       this.service.updateUsers(this.currentUser);
     } else {
-      this.currentUser.messages[this.indexItemActiveInEdit].message =
-        this.sendMessge;
-      const indexUser = this.users.findIndex(
-        (x) => x.id === this.currentUser.id
-      );
-      this.users[indexUser].messages[this.indexItemActiveInEdit].message =
-        this.sendMessge;
-      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-      localStorage.setItem('users', JSON.stringify(this.users));
+      this.currentUser.messages[this.indexItemActiveInEdit].message = this.sendMessge;
+      const indexUser = this.users.findIndex(x => x.id === this.currentUser.id);
+      this.users[indexUser].messages[this.indexItemActiveInEdit].message = this.sendMessge;
     }
-    if (this.messages[this.indexItemActiveInEdit].pin === true) {
+    if (this.pinMessageBox) {
+      this.currentUser.pinMessage = this.sendMessge;
+      this.users[indexUser].pinMessage = this.sendMessge;
       this.messageBoxPin = this.sendMessge;
     }
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    localStorage.setItem('users', JSON.stringify(this.users));
     this.isEdit = false;
     this.viewEditMessage = false;
     this.sendMessge = '';
@@ -186,7 +175,6 @@ export class ContentComponent implements OnInit {
   public forward = (item: messages, index: number) => {
     // item.forwarded = this.currentUser.name;
     item.clientMessage = true;
-    item.forwarded = this.currentUser.name;
     const data = {
       users: this.users,
       currentUser: this.currentUser,
@@ -200,12 +188,12 @@ export class ContentComponent implements OnInit {
     });
   };
 
-  public deleted = (item : messages, index : number) => {
+  public deleted = (item: messages, index: number) => {
     const messageIndex = this.currentUser.messages.findIndex(
       (x) => x.id === item.id
     );
     const userIndex = this.users.findIndex((x) => x.id === this.currentUser.id);
-    if ( this.currentUser.idLastMessage === item.id && this.messages.length > 1 ) {
+    if (this.currentUser.idLastMessage === item.id && this.messages.length > 1) {
       this.currentUser.idLastMessage = this.messages[index - 1].id;
       this.currentUser.lastSendMessage = this.messages[index - 1].message;
       this.users[userIndex].idLastMessage = this.messages[index - 1].id;

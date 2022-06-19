@@ -199,16 +199,12 @@ export class ContentComponent implements OnInit {
     });
   };
 
-  public deleted = (item, index) => {
+  public deleted = (item : messages, index : number) => {
     const messageIndex = this.currentUser.messages.findIndex(
       (x) => x.id === item.id
     );
     const userIndex = this.users.findIndex((x) => x.id === this.currentUser.id);
-
-    if (
-      this.currentUser.idLastMessage === item.id &&
-      this.messages.length > 1
-    ) {
+    if ( this.currentUser.idLastMessage === item.id && this.messages.length > 1 ) {
       this.currentUser.idLastMessage = this.messages[index - 1].id;
       this.currentUser.lastSendMessage = this.messages[index - 1].message;
       this.users[userIndex].idLastMessage = this.messages[index - 1].id;

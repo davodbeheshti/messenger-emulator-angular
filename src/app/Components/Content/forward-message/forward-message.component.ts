@@ -10,7 +10,7 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class ForwardMessageComponent implements OnInit {
 
-  listUsersFrom_LS: any[];
+  users: any[];
   dataSource : any[];
   dataMessageForward;
   constructor(public dialogRef: MatDialogRef<ForwardMessageComponent>, @Inject(MAT_DIALOG_DATA) data , private service : ProjectService) {

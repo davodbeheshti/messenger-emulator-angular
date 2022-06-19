@@ -5,7 +5,7 @@
     </div>
 
     <mat-selection-list #shoes [multiple]="false">
-        <mat-list-option (click)="clickUser(item)" *ngFor="let item of listUsersFrom_LS; let i = index;">
+        <mat-list-option (click)="clickUser(item)" *ngFor="let item of users; let i = index;">
             <div class="d-flex align-items-center w-100">
                 <img class="img-user" src="../../../../assets/img/user.png" alt="">
                 <p class="mb-0 ml-3">{{item.name}}</p>

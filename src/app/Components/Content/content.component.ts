@@ -180,6 +180,7 @@ export class ContentComponent implements OnInit {
     this.currentUser.pinMessage = item.message;
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     localStorage.setItem('users', JSON.stringify(this.users));
+    this.showIconOperationById = '';
   };
 
   public forward = (item: messages, index: number) => {
@@ -191,7 +192,7 @@ export class ContentComponent implements OnInit {
       currentUser: this.currentUser,
       forwardMessage: item,
     };
-
+    this.showIconOperationById = '';
     const dialogRef = this.dialog.open(ForwardMessageComponent, {
       width: '35%',
       panelClass: 'modal-create-chanel',
@@ -225,6 +226,7 @@ export class ContentComponent implements OnInit {
     this.messages = this.messages.filter((x) => x.id !== item.id);
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     localStorage.setItem('users', JSON.stringify(this.users));
+    this.showIconOperationById = ''
     this.service.updateUsers(this.currentUser);
   };
 

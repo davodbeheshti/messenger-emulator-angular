@@ -35,34 +35,39 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.route.snapshot.paramMap.get('id');
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.messageBoxPin = this.currentUser.pinMessage;
+    this.pinMessageBox = this.currentUser.pinMessage ? true : false;
     this.messages = this.currentUser.messages;
     console.log(this.messages);
     this.service.getCurrentUser.subscribe((data) => {
       this.currentUser = data;
       this.messages = data.messages;
       this.sendMessge = '';
+      this.messageBoxPin = this.currentUser.pinMessage;
+      this.pinMessageBox = this.currentUser.pinMessage ? true : false;
       this.isEdit = false;
-      this.pinMessageBox = false;
     });
     this.users = JSON.parse(localStorage.getItem('users')) || [];
-    this.pinMessageBox = false;
     let today = new Date();
     this.timeSystem = today.getHours() + ':' + today.getMinutes();
   }
 
   public sendMessage = () => {
-    const objMessage = {
-      message: this.sendMessge,
-      id: uuid.v4(),
+    const objMessage: messages = {
       clientMessage: true,
+      id: uuid.v4(),
+      message: this.sendMessge,
       timeMessage: this.timeSystem,
+      pin: false,
+      forwarded: '',
     };
     this.addMessage_LS(objMessage);
     this.sendMessageSystem();
   };
 
   private addMessage_LS = (objMessage) => {
-    const { name, family, id, totalCountMessages , userSystem } = this.currentUser;
+    const { name, family, id, totalCountMessages, userSystem } =
+      this.currentUser;
     if (totalCountMessages === 0 && userSystem === false) {
       const user: users = {
         name,
@@ -72,8 +77,9 @@ export class ContentComponent implements OnInit {
         totalCountMessages: 1,
         idLastMessage: objMessage.id,
         lastSendMessage: objMessage.message,
-        userSystem : true,
+        userSystem: true,
         messages: [objMessage],
+        pinMessage: '',
       };
       this.currentUser.messages.push(objMessage);
       this.currentUser = user;
@@ -130,9 +136,13 @@ export class ContentComponent implements OnInit {
   public isEditMessage = () => {
     this.messages[this.indexItemActiveInEdit].message = this.sendMessge;
     // if edit lastSendMessage
-    if ( this.messages[this.indexItemActiveInEdit].id === this.currentUser.idLastMessage ) {
+    if (
+      this.messages[this.indexItemActiveInEdit].id ===
+      this.currentUser.idLastMessage
+    ) {
       this.currentUser.lastSendMessage = this.sendMessge;
-      this.currentUser.messages[this.indexItemActiveInEdit].message = this.sendMessge;
+      this.currentUser.messages[this.indexItemActiveInEdit].message =
+        this.sendMessge;
       const indexUser = this.users.findIndex(
         (x) => x.id === this.currentUser.id
       );
@@ -162,24 +172,26 @@ export class ContentComponent implements OnInit {
     this.showIconOperationById = '';
   };
 
-  public pin = (item, index) => {
+  public pin = (item: messages, index: number) => {
     this.messageBoxPin = item.message;
     this.pinMessageBox = true;
-    // this.messages[index].showIconOperation = false;
-    this.messages.map((x) => {
-      x.pin = false;
-    });
-    this.messages[index].pin = true;
+    const user = this.users.find((x) => x.id === this.userId);
+    user.pinMessage = item.message;
+    this.currentUser.pinMessage = item.message;
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    localStorage.setItem('users', JSON.stringify(this.users));
   };
 
-  public forward = (item : messages, index : number) => {
+  public forward = (item: messages, index: number) => {
     // item.forwarded = this.currentUser.name;
     item.clientMessage = true;
+    item.forwarded = this.currentUser.name;
     const data = {
-      users : this.users,
-      currentUser : this.currentUser,
-      forwardMessage : item
-    }
+      users: this.users,
+      currentUser: this.currentUser,
+      forwardMessage: item,
+    };
+
     const dialogRef = this.dialog.open(ForwardMessageComponent, {
       width: '35%',
       panelClass: 'modal-create-chanel',
@@ -201,7 +213,7 @@ export class ContentComponent implements OnInit {
       this.currentUser.lastSendMessage = this.messages[index - 1].message;
       this.users[userIndex].idLastMessage = this.messages[index - 1].id;
       this.users[userIndex].lastSendMessage = this.messages[index - 1].message;
-    } 
+    }
     if (this.messages.length === 1) {
       this.currentUser.totalCountMessages = 0;
       this.users[userIndex].totalCountMessages = 0;
@@ -214,7 +226,7 @@ export class ContentComponent implements OnInit {
     this.currentUser.messages.splice(messageIndex, 1);
     this.users[userIndex].totalCountMessages -= 1;
     this.users[userIndex].messages.splice(messageIndex, 1);
-    this.messages = this.messages.filter((x) => x.id !== item.id);   
+    this.messages = this.messages.filter((x) => x.id !== item.id);
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     localStorage.setItem('users', JSON.stringify(this.users));
     this.service.updateUsers(this.currentUser);
@@ -222,6 +234,11 @@ export class ContentComponent implements OnInit {
 
   public unPin = () => {
     this.pinMessageBox = false;
+    const user = this.users.find((x) => x.id === this.userId);
+    user.pinMessage = '';
+    this.currentUser.pinMessage = '';
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    localStorage.setItem('users', JSON.stringify(this.users));
   };
 
   public unViewEditMessage = () => {

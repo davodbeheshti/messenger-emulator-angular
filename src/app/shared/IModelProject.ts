@@ -19,6 +19,7 @@ export interface messages {
   message: string;
   timeMessage: string;
   pin : boolean;
+  forwarded : string;
 }
 
 export interface users {

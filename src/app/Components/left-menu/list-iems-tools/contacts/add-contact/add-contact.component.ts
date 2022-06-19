@@ -52,6 +52,7 @@ export class AddContactComponent implements OnInit {
         lastSendMessage: '',
         idLastMessage: '',
         userSystem : false,
+        pinMessage : '',
       };
       let listContacts = JSON.parse(getContacts) || [];
       listContacts.push(contact);

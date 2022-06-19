@@ -32,4 +32,5 @@ export interface users {
   lastSendMessage: string;
   messages: messages[];
   userSystem : boolean;
+  pinMessage : string;
 }

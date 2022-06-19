@@ -26,17 +26,17 @@ export class HeaderContentComponent implements OnInit {
   ngOnInit(): void {
     // this.userId = this.router.get
     this.userId = this.route.snapshot.paramMap.get('id');
-    this.listUserFromLS = JSON.parse(window.localStorage.getItem('user'));
+    this.listUserFromLS = JSON.parse(localStorage.getItem('contacts'));
     this.currentUser = this.listUserFromLS.find(x => x.id === this.userId);
   }
 
   public clearHistory = () => {
     this.currentUser.messages = [];
-    window.localStorage.setItem('user', JSON.stringify(this.listUserFromLS));
+    localStorage.setItem('user', JSON.stringify(this.listUserFromLS));
   }
   public deleteChate = () => {
     this.listUserFromLS = this.listUserFromLS.filter(x => x.id !== this.userId);
-    window.localStorage.setItem('user', JSON.stringify(this.listUserFromLS));
+    localStorage.setItem('user', JSON.stringify(this.listUserFromLS));
     this.service.updateUsers(true);
     this.router.navigate([''])
   }

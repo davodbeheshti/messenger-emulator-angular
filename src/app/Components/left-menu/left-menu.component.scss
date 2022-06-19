@@ -1,9 +1,10 @@
 .left-menu-component {
-    height: 667px;
+    height: 100vh;
     position: absolute;
-    left: -369px;
+    left: 0px;
     top: 0;
-    width: 27%;
+    width: 0;
+    overflow-x: hidden;
     background: #37575c;
     transition: all 0.2s ease;
     z-index: 12;

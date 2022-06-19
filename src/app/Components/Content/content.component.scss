@@ -13,6 +13,14 @@
         margin-top: 10px;
         position: relative;
         width: auto;
+        .forwarded {
+          font-size: 12px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0;
+          margin-top: 5px;
+          color: #bbdaf9;
+        }
       }
       .list-items-operation {
         position: absolute;

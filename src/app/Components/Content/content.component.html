@@ -21,10 +21,16 @@
                             class="fa fa-ellipsis-v"></i></span>
                     <p class="text-white">{{item.message}}</p>
                 </div>
-                <p class="date-view">
-                    <span class="date">{{item.timeMessage}} PM</span>
-                    <span class="view"><i class="fa fa-check"></i></span>
-                </p>
+                <div class="d-flex flex-column">
+                    <p class="date-view">
+                        <span class="date">{{item.timeMessage}} PM</span>
+                        <span class="view"><i class="fa fa-check"></i></span>
+                    </p>
+                    <p class="forwarded">
+                        <span *ngIf="item.forwarded">forward from</span>
+                        <span>{{item.forwarded}}</span>
+                    </p>
+                </div>
             </div>
             <ul [style]="showIconOperationById === item.id ? 'padding: 8px; height: auto;' : null"
                 class="list-items-operation">

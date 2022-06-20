@@ -29,7 +29,9 @@ export class HeaderContentComponent implements OnInit {
   }
 
   public clearHistory = () => {
-    this.service.clearHistory(this.dataUsers , this.data);
+    if(this.data.totalCountMessages) {
+      this.service.clearHistory(this.dataUsers , this.data);
+    }
     this.showMenuOperation = false;
   }
 

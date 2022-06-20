@@ -4,6 +4,7 @@
     }
     .header {
         height: 9.3%;
+        overflow: auto;
     }
     .body {
         height: 82.2%;
@@ -117,7 +118,8 @@
         }
     }
     .footer-section {
-        height: 5.9%;
+        height: 8.5%;
+        overflow: auto;
     }
     .pin_Edit_BoxMessage {
         padding: 8px;

@@ -56,7 +56,6 @@ export class AddContactComponent implements OnInit {
       };
       let listContacts = JSON.parse(getContacts) || [];
       listContacts.push(contact);
-      localStorage.setItem('contacts', JSON.stringify(listContacts));
       localStorage.setItem('currentUser', JSON.stringify(contact));
       this.service.updateContacts(contact);
       this.router.navigateByUrl(`contact/${contact.id}`);

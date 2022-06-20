@@ -63,7 +63,9 @@ export class SidbarComponent implements OnInit {
 
   public deleteChate = (item : users, i : number) => {
     this.users = this.users.filter((x) => x.id !== item.id);
+    this.currentUser = null;
     localStorage.setItem('users', JSON.stringify(this.users));
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     this.router.navigate(['/']);
   };
 }

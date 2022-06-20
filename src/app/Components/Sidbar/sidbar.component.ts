@@ -20,7 +20,7 @@ export class SidbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.users = JSON.parse(localStorage.getItem('users'));
-    
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.service.clickUpdateUser.subscribe((data) => {
       this.users = JSON.parse(localStorage.getItem('users'));
       const indexUser = this.users.findIndex(user => user.id === data.id);
@@ -32,26 +32,36 @@ export class SidbarComponent implements OnInit {
     this.clickHanbergerMenu.emit();
   };
 
-  public clickBoxUser = (item, i) => {
+  public clickBoxUser = (item : users, i : number) => {
     this.router.navigateByUrl(`contact/${item.id}`);
     this.service.updateContacts(item);
-    // this.service.getUser(item)
   };
 
-  public clickShowMenuOperation = (item, i): any => {
+  public clickShowMenuOperation = (item : users, i: number): any => {
     if (this.showMenuOperationById === item.id) {
       return (this.showMenuOperationById = '');
     }
     this.showMenuOperationById = this.users[i].id;
   };
 
-  public clearHistory = (item, i) => {
-    const currentUser = this.users.find((x) => x.id === item.id);
-    currentUser.messages = [];
+  public clearHistory = (item : users, i : number) => {
+    const user : users = this.users.find((x) => x.id === item.id);
+    user.messages = [];
+    user.idLastMessage = '';
+    user.lastSendMessage = '';
+    user.pinMessage = '';
+    user.totalCountMessages = 0;
+    this.currentUser.messages = [];
+    this.currentUser.idLastMessage = '';
+    this.currentUser.lastSendMessage = '';
+    this.currentUser.pinMessage = '';
+    this.currentUser.totalCountMessages = 0;
     localStorage.setItem('users', JSON.stringify(this.users));
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    this.showMenuOperationById = '';
   };
 
-  public deleteChate = (item, i) => {
+  public deleteChate = (item : users, i : number) => {
     this.users = this.users.filter((x) => x.id !== item.id);
     localStorage.setItem('users', JSON.stringify(this.users));
     this.router.navigate(['/']);

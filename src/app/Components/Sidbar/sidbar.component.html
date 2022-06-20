@@ -16,11 +16,14 @@
                 </p>
                 <div class="d-flex justify-content-between subTitle-users mb-0">
                     <span class="description-message">{{item.lastSendMessage }}</span>
-                    <span class="icon-operation" (click)="clickShowMenuOperation(item , i)"><i class="fa fa-ellipsis-v"></i></span>
-                    <ul [style]="showMenuOperationById === item.id ? 'height : 90px;' : null" class="list-items-operation">
+                    <span class="icon-operation" (click)="clickShowMenuOperation(item , i)"><i
+                            class="fa fa-ellipsis-v"></i></span>
+                    <ul [style]="showMenuOperationById === item.id ? 'height : 90px;' : null"
+                        class="list-items-operation">
                         <li (click)="clearHistory(item , i)">
                             <i>
-                                <object style="width : 85%; height: 26px;" data="../../../../assets/svg/broom.svg" width="30" height="30"> </object>
+                                <object style="width : 85%; height: 26px;" data="../../../../assets/svg/broom.svg"
+                                    width="30" height="30"> </object>
                             </i>
                             <span>Clear history</span>
                         </li>

@@ -7,8 +7,8 @@
         overflow: auto;
     }
     .body {
-        height: 85.2%;
         overflow: auto;
+        transition: all .3s ease;
         .box-message {
             width: 100%;
             .box {
@@ -121,7 +121,7 @@
         }
     }
     .footer-section {
-        height: 6.5%;
+        transition: all .3s ease;
         overflow: auto;
         .footer-content-component {
             display: flex;

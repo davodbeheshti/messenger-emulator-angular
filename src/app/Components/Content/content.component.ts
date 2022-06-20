@@ -39,9 +39,9 @@ export class ContentComponent implements OnInit {
     this.pinMessageBox = this.currentUser.pinMessage ? true : false;
     this.messages = this.currentUser.messages;
     console.log(this.messages);
-    this.service.getCurrentUser.subscribe((data) => {
+    this.service.getCurrentUser.subscribe((data : users) => {
       this.currentUser = data;
-      this.messages = data.messages;
+      this.messages = data.messages || [];
       this.sendMessge = '';
       this.messageBoxPin = this.currentUser.pinMessage;
       this.pinMessageBox = this.currentUser.pinMessage ? true : false;

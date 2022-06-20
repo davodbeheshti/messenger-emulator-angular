@@ -16,7 +16,7 @@ export class SidbarComponent implements OnInit {
   users: users[];
   showMenuOperationById: string = '';
   currentUser: users;
-  constructor(private router: Router, private service: ProjectService) {}
+  constructor(private router: Router, private service: ProjectService) { }
 
   ngOnInit(): void {
     this.users = JSON.parse(localStorage.getItem('users'));
@@ -32,40 +32,30 @@ export class SidbarComponent implements OnInit {
     this.clickHanbergerMenu.emit();
   };
 
-  public clickBoxUser = (item : users, i : number) => {
+  public clickBoxUser = (item: users, i: number) => {
     this.router.navigateByUrl(`contact/${item.id}`);
     this.service.updateContacts(item);
   };
 
-  public clickShowMenuOperation = (item : users, i: number): any => {
+  public clickShowMenuOperation = (item: users, i: number): any => {
     if (this.showMenuOperationById === item.id) {
       return (this.showMenuOperationById = '');
     }
     this.showMenuOperationById = this.users[i].id;
   };
 
-  public clearHistory = (item : users, i : number) => {
-    const user : users = this.users.find((x) => x.id === item.id);
-    user.messages = [];
-    user.idLastMessage = '';
-    user.lastSendMessage = '';
-    user.pinMessage = '';
-    user.totalCountMessages = 0;
-    this.currentUser.messages = [];
-    this.currentUser.idLastMessage = '';
-    this.currentUser.lastSendMessage = '';
-    this.currentUser.pinMessage = '';
-    this.currentUser.totalCountMessages = 0;
-    localStorage.setItem('users', JSON.stringify(this.users));
-    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+  public clearHistory = (item: users, i: number) => {
+    this.service.clearHistory(this.users , item);
     this.showMenuOperationById = '';
   };
 
-  public deleteChate = (item : users, i : number) => {
-    this.users = this.users.filter((x) => x.id !== item.id);
-    this.currentUser = null;
-    localStorage.setItem('users', JSON.stringify(this.users));
-    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+  public deleteChate = (item: users, i: number) => {
+    this.service.deleteChate(item);
     this.router.navigate(['/']);
+    // this.users = this.users.filter((x) => x.id !== item.id);
+    // this.currentUser = null;
+    // localStorage.setItem('users', JSON.stringify(this.users));
+    // localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    // this.router.navigate(['/']);
   };
 }

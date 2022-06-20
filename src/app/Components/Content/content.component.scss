@@ -1,196 +1,193 @@
 .content-component {
-  p {
-    margin-bottom: 0;
-  }
-  .header {
-    height: 6.4%;
-  }
-  .body {
-    height: 87.7%;
-    overflow: auto;
-    .box-message {
-      width: 100%;
-      .box {
-        padding: 8px;
-        border-radius: 5px;
-        margin-top: 10px;
-        position: relative;
-        width: auto;
-        .forwarded {
-          font-size: 12px;
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 0;
-          margin-top: 5px;
-          color: #bbdaf9;
-        }
-      }
-      .list-items-operation {
-        position: absolute;
-        width: 25%;
-        border-radius: 5px;
-        overflow: hidden;
-        height: 0;
-        z-index: 423;
-        li {
-          width: 100%;
-          padding: 8px;
-          display: flex;
-          align-items: center;
-          border-radius: 5px;
-          transition: all 0.3s ease;
-          cursor: pointer;
-          &:hover {
-            background: #79bafd7a;
-          }
-          i {
-            color: #d1d1d1;
-            width: 25%;
-          }
-          span {
-            color: white;
-            width: 75%;
-          }
-        }
-      }
-      .icon-operation {
-        width: 20px;
-        display: flex;
-        justify-content: center;
-        margin-right: 5px;
-        cursor: pointer;
-        align-items: center;
-        border-radius: 100px;
-        height: 20px;
-        transition: all 0.3s ease;
-        &:hover {
-          background: #7c8c8f;
-        }
-      }
+    p {
+        margin-bottom: 0;
     }
-    .clientMessage {
-      width: 50%;
-      display: flex;
-      justify-content: flex-end;
-      margin-left: auto;
-      position: relative;
-      .box {
-        border-bottom-right-radius: 0;
-        margin-right: 20px;
-        background: #389aff;
-      }
-      .list-items-operation {
-        background: #005868;
-        right: 0;
-        top: 100%;
-        border-top-right-radius: 0;
-      }
-      .icon-operation {
-      }
+    .header {
+        height: 9.3%;
     }
-    .systemMessage {
-      .box {
-        border-bottom-left-radius: 0;
-        background: #005260;
-        margin-left: 20px;
-        display: flex;
-        flex-direction: column;
-      }
-      .list-items-operation {
-        background: #005868;
-        right: -173px;
-        border-top-left-radius: 0;
-      }
-      .icon-operation {
-      }
-    }
-    .date-view {
-      font-size: 12px;
-      padding-top: 3px;
-      margin-top: 5px;
-      display: flex;
-      justify-content: flex-end;
-      border-top: 1px solid white;
-      .date {
-        color: #f7f7f7;
-        margin-right: 8px;
-      }
-      .view {
-      }
-    }
-  }
-  .footer-section {
-    height: 5.9%;
-  }
-  .pin_Edit_BoxMessage {
-    padding: 8px;
-    .texts-box {
-      width: 92%;
-      padding-left: 13px;
-      position: relative;
-      &::before {
-        content: "";
-        position: absolute;
-        width: 2px;
-        height: 40px;
-        background: #389aff;
-        left: 0px;
-      }
-      span {
-        color: #389aff;
-      }
-      p {
-        margin-top: 2px;
-        color: white;
-      }
-    }
-    i {
-      width: 8%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 22px;
-      color: #d1d1d1;
-      font-weight: 100;
-      cursor: pointer;
-    }
-  }
-  .editBoxMessage {
-    background: #005868;
-    border-left: 1px solid #00000063;
-  }
-  .pinBoxMessage {
-    background: #007489;
-  }
-  .footer-content-component {
-    display: flex;
-    padding: 8px;
-    background: #005868;
-    border: 1px solid #00000063;
-    border-top: none;
-    .send-message {
-      width: 80%;
-      textarea {
+    .body {
+        height: 82.2%;
         overflow: auto;
-        resize: vertical;
-        width: 100%;
-        height: 28px !important;
-        border: none;
+        .box-message {
+            width: 100%;
+            .box {
+                padding: 8px;
+                border-radius: 5px;
+                margin-top: 10px;
+                position: relative;
+                width: auto;
+                .forwarded {
+                    font-size: 12px;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0;
+                    margin-top: 5px;
+                    color: #bbdaf9;
+                }
+            }
+            .list-items-operation {
+                position: absolute;
+                width: 25%;
+                border-radius: 5px;
+                overflow: hidden;
+                height: 0;
+                z-index: 423;
+                li {
+                    width: 100%;
+                    padding: 8px;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 5px;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                    &:hover {
+                        background: #79bafd7a;
+                    }
+                    i {
+                        color: #d1d1d1;
+                        width: 25%;
+                    }
+                    span {
+                        color: white;
+                        width: 75%;
+                    }
+                }
+            }
+            .icon-operation {
+                width: 20px;
+                display: flex;
+                justify-content: center;
+                margin-right: 5px;
+                cursor: pointer;
+                align-items: center;
+                border-radius: 100px;
+                height: 20px;
+                transition: all 0.3s ease;
+                &:hover {
+                    background: #7c8c8f;
+                }
+            }
+        }
+        .clientMessage {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+            position: relative;
+            .box {
+                border-bottom-right-radius: 0;
+                margin-right: 20px;
+                background: #389aff;
+            }
+            .list-items-operation {
+                background: #005868;
+                right: 0;
+                top: 100%;
+                border-top-right-radius: 0;
+            }
+            .icon-operation {}
+        }
+        .systemMessage {
+            .box {
+                border-bottom-left-radius: 0;
+                background: #005260;
+                margin-left: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+            .list-items-operation {
+                background: #005868;
+                right: -173px;
+                border-top-left-radius: 0;
+            }
+            .icon-operation {}
+        }
+        .date-view {
+            font-size: 12px;
+            padding-top: 3px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid white;
+            .date {
+                color: #f7f7f7;
+                margin-right: 8px;
+            }
+            .view {}
+        }
+    }
+    .footer-section {
+        height: 5.9%;
+    }
+    .pin_Edit_BoxMessage {
+        padding: 8px;
+        .texts-box {
+            width: 92%;
+            padding-left: 13px;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 2px;
+                height: 40px;
+                background: #389aff;
+                left: 0px;
+            }
+            span {
+                color: #389aff;
+            }
+            p {
+                margin-top: 2px;
+                color: white;
+            }
+        }
+        i {
+            width: 8%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            color: #d1d1d1;
+            font-weight: 100;
+            cursor: pointer;
+        }
+    }
+    .editBoxMessage {
         background: #005868;
-        outline: none;
-        color: #d1d1d1;
-      }
+        border-left: 1px solid #00000063;
     }
-    .icon-right {
-      display: flex;
-      align-items: center;
-      font-size: 22px;
-      color: #d1d1d1;
-      cursor: pointer;
+    .pinBoxMessage {
+        background: #007489;
     }
-    .icon-right {
-      width: 16%;
-      justify-content: space-evenly;
+    .footer-content-component {
+        display: flex;
+        padding: 8px;
+        background: #005868;
+        border: 1px solid #00000063;
+        border-top: none;
+        .send-message {
+            width: 80%;
+            textarea {
+                overflow: auto;
+                resize: vertical;
+                width: 100%;
+                height: 28px !important;
+                border: none;
+                background: #005868;
+                outline: none;
+                color: #d1d1d1;
+            }
+        }
+        .icon-right {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            color: #d1d1d1;
+            cursor: pointer;
+        }
+        .icon-right {
+            width: 16%;
+            justify-content: space-evenly;
+        }
     }
-  }
 }

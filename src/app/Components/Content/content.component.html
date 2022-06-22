@@ -3,8 +3,8 @@
     <div class="header">
         <app-header-content [dataUsers]='users' [data]="currentUser"></app-header-content>
     </div>
-
-    <div class="body" [style]="viewEditMessage ? 'height : 78.2%' : 'height : 85.2%;'">
+    <!-- [style]="viewEditMessage ? '' : 'height : 85.2%;'" -->
+    <div [class]="viewEditMessage ?  'body isEditMessageBody' : 'body isNotEditMessageBody'">
         <!-- -->
         <div *ngIf="pinMessageBox" class="pin_Edit_BoxMessage pinBoxMessage d-flex">
             <div class="texts-box">
@@ -61,8 +61,8 @@
             </ul>
         </div>
     </div>
-
-    <div class="footer-section d-flex flex-column" [style]="viewEditMessage ? 'height : 13.5%' : 'height: 6.5%;'">
+    <!-- [style]="viewEditMessage ? '' : 'height: 6.5%;'" -->
+    <div [class]="viewEditMessage ?  'footer-section isEditMessageFooter' : 'footer-section isNotEditMessageFooter'">
         <div *ngIf="viewEditMessage" class="pin_Edit_BoxMessage editBoxMessage d-flex">
             <div class="texts-box">
                 <span>Edit message</span>
@@ -95,6 +95,6 @@
 
             </div>
         </div>
-    </div>  
+    </div>
 
 </div>

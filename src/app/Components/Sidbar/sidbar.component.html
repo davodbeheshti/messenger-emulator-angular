@@ -6,7 +6,7 @@
         <input type="text" placeholder="search" class="form-control ml-2">
     </div>
 
-    <div class="users mt-3">
+    <div class="users">
         <div class="list-users" *ngFor="let item of users; let i = index;" (click)="clickBoxUser(item , i)">
             <img src="../../../assets/img/photo_2021-10-12_23-38-06.jpg" alt="">
             <div class="section-texts">
@@ -18,8 +18,7 @@
                     <span class="description-message">{{item.lastSendMessage }}</span>
                     <span class="icon-operation" (click)="clickShowMenuOperation(item , i)"><i
                             class="fa fa-ellipsis-v"></i></span>
-                    <ul [style]="showMenuOperationById === item.id ? 'height : 90px;' : null"
-                        class="list-items-operation">
+                    <ul [style]="showMenuOperationById === item.id ? 'height : 90px;' : null" class="list-items-operation">
                         <li (click)="clearHistory(item , i)">
                             <i>
                                 <object style="width : 85%; height: 26px;" data="../../../../assets/svg/broom.svg"

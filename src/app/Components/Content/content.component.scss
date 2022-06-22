@@ -14,8 +14,14 @@
     transition: all 0.3s ease;
     &.isEditMessageBody {
       height: 70.9%;
+      @media (min-height: 550px) {
+        height: 70.2%;
+      }
+      @media (min-height: 600px) {
+        height: 71%;
+      }
       @media (min-height: 650px) {
-        height: 72.4%;
+        height: 73.5%;
       }
       @media (min-height: 700px) {
         height: 75.1%;
@@ -28,7 +34,7 @@
       }
     }
     &.isNotEditMessageBody {
-      height: 83.5%;
+      height: 83.4%;
       @media (min-height: 650px) {
         height: 85%;
       }
@@ -149,7 +155,16 @@
   }
   .footer-section {
     &.isEditMessageFooter {
-      height: 19.1%;
+      height: 20.1%;
+      @media (min-height: 550px) {
+        height: 19.8%;
+      }
+      @media (min-height: 600px) {
+        height: 19%;
+      }
+      @media (min-height: 650px) {
+        height: 18%;
+      }
       @media (min-height: 700px) {
         height: 16.4%;
       }

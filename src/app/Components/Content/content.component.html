@@ -38,7 +38,7 @@
                     <i class="fa fa-reply"></i>
                     <span>Reply</span>
                 </li>
-                <li *ngIf="item.clientMessage" (click)="edit(item , i)">
+                <li *ngIf="item.clientMessage && !item.forwarded" (click)="edit(item , i)">
                     <i class="fa fa-pencil"></i>
                     <span>Edit</span>
                 </li>

@@ -1,4 +1,4 @@
-import { messages, users } from './../../../shared/IModelProject';
+import { IMessages, IUsers } from './../../../shared/IModelProject';
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProjectService } from 'src/app/services/project.service';
@@ -12,9 +12,9 @@ import * as uuid from 'uuid';
 })
 export class ForwardMessageComponent implements OnInit {
 
-  users: users[];
-  currentUser: users;
-  dataMessageForward: messages;
+  users: IUsers[];
+  currentUser: IUsers;
+  dataMessageForward: IMessages;
   constructor(public dialogRef: MatDialogRef<ForwardMessageComponent>, @Inject(MAT_DIALOG_DATA) data, private service: ProjectService) {
     this.currentUser = data.currentUser;
     this.users = data.users;
@@ -29,7 +29,7 @@ export class ForwardMessageComponent implements OnInit {
   }
 
   public clickUser = (item) => {
-    const user: users = this.users.find(x => x.id === item.id);
+    const user: IUsers = this.users.find(x => x.id === item.id);
     this.dataMessageForward.id = uuid.v4();
     const assignObject = Object.assign({} , this.dataMessageForward);
     assignObject.forwarded = this.currentUser.name;

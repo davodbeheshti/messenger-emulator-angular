@@ -11,9 +11,9 @@ export interface Contact {
   id: string;
 }
 
-export interface CurentUser extends users {}
+export interface CurentUser extends IUsers {}
 
-export interface messages {
+export interface IMessages {
   clientMessage: true;
   id: string;
   message: string;
@@ -22,7 +22,7 @@ export interface messages {
   forwarded : string;
 }
 
-export interface users {
+export interface IUsers {
   name: string;
   family: string;
   phone: string;
@@ -30,7 +30,7 @@ export interface users {
   totalCountMessages: number;
   idLastMessage: string;
   lastSendMessage: string;
-  messages: messages[];
+  messages: IMessages[];
   userSystem : boolean;
   pinMessage : string;
 }

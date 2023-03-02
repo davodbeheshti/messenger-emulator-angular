@@ -1,7 +1,7 @@
 import {
   Contact,
   CurentUser,
-  users,
+  IUsers,
 } from '../../../../../shared/IModelProject';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';

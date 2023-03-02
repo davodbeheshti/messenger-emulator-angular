@@ -1,4 +1,4 @@
-import { CurentUser, users, messages } from '../../shared/IModelProject';
+import { CurentUser, IUsers, IMessages } from '../../shared/IModelProject';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,9 +13,9 @@ import { ForwardMessageComponent } from './forward-message/forward-message.compo
 export class ContentComponent implements OnInit {
   currentUser: CurentUser;
   userId: string;
-  users: users[] = [];
+  users: IUsers[] = [];
   sendMessge: string = '';
-  messages: messages[] = [];
+  messages: IMessages[] = [];
   isEdit: boolean = false;
   showIconOperationById: string = '';
   pinMessageBox: boolean = false;
@@ -39,13 +39,14 @@ export class ContentComponent implements OnInit {
     this.pinMessageBox = this.currentUser.pinMessage ? true : false;
     this.messages = this.currentUser.messages;
     console.log(this.messages);
-    this.service.getCurrentUser.subscribe((data : users) => {
+    this.service.getCurrentUser.subscribe((data : IUsers) => {
       this.currentUser = data;
       this.messages = data.messages || [];
       this.sendMessge = '';
       this.messageBoxPin = this.currentUser.pinMessage;
       this.pinMessageBox = this.currentUser.pinMessage ? true : false;
       this.isEdit = false;
+      this.viewEditMessage = false;
     });
     this.users = JSON.parse(localStorage.getItem('users')) || [];
     let today = new Date();
@@ -53,7 +54,7 @@ export class ContentComponent implements OnInit {
   }
 
   public sendMessage = () => {
-    const objMessage: messages = {
+    const objMessage: IMessages = {
       clientMessage: true,
       id: uuid.v4(),
       message: this.sendMessge,
@@ -69,7 +70,7 @@ export class ContentComponent implements OnInit {
     const { name, family, id, totalCountMessages, userSystem } =
       this.currentUser;
     if (totalCountMessages === 0 && userSystem === false) {
-      const user: users = {
+      const user: IUsers = {
         name,
         id,
         family,
@@ -161,7 +162,7 @@ export class ContentComponent implements OnInit {
     this.showIconOperationById = '';
   };
 
-  public pin = (item: messages, index: number) => {
+  public pin = (item: IMessages, index: number) => {
     this.messageBoxPin = item.message;
     this.pinMessageBox = true;
     const user = this.users.find((x) => x.id === this.userId);
@@ -172,7 +173,7 @@ export class ContentComponent implements OnInit {
     this.showIconOperationById = '';
   };
 
-  public forward = (item: messages, index: number) => {
+  public forward = (item: IMessages, index: number) => {
     // item.forwarded = this.currentUser.name;
     item.clientMessage = true;
     const data = {
@@ -188,7 +189,7 @@ export class ContentComponent implements OnInit {
     });
   };
 
-  public deleted = (item: messages, index: number) => {
+  public deleted = (item: IMessages, index: number) => {
     const messageIndex = this.currentUser.messages.findIndex(
       (x) => x.id === item.id
     );

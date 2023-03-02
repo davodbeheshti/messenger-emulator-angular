@@ -1,8 +1,8 @@
-import { messages } from '../../shared/IModelProject';
+import { IMessages } from '../../shared/IModelProject';
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { users } from 'src/app/shared/IModelProject';
+import { IUsers } from 'src/app/shared/IModelProject';
 
 import { ProjectService } from '../../services/project.service';
 
@@ -13,9 +13,9 @@ import { ProjectService } from '../../services/project.service';
 })
 export class SidbarComponent implements OnInit {
   @Output() clickHanbergerMenu = new EventEmitter();
-  users: users[];
+  users: IUsers[];
   showMenuOperationById: string = '';
-  currentUser: users;
+  currentUser: IUsers;
   constructor(private router: Router, private service: ProjectService) { }
 
   ngOnInit(): void {
@@ -32,24 +32,24 @@ export class SidbarComponent implements OnInit {
     this.clickHanbergerMenu.emit();
   };
 
-  public clickBoxUser = (item: users, i: number) => {
+  public clickBoxUser = (item: IUsers, i: number) => {
     this.router.navigateByUrl(`contact/${item.id}`);
     this.service.updateContacts(item);
   };
 
-  public clickShowMenuOperation = (item: users, i: number): any => {
+  public clickShowMenuOperation = (item: IUsers, i: number): any => {
     if (this.showMenuOperationById === item.id) {
       return (this.showMenuOperationById = '');
     }
     this.showMenuOperationById = this.users[i].id;
   };
 
-  public clearHistory = (item: users, i: number) => {
+  public clearHistory = (item: IUsers, i: number) => {
     this.service.clearHistory(this.users , item);
     this.showMenuOperationById = '';
   };
 
-  public deleteChate = (item: users, i: number) => {
+  public deleteChate = (item: IUsers, i: number) => {
     this.service.deleteChate(item);
     this.router.navigate(['/']);
     // this.users = this.users.filter((x) => x.id !== item.id);

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
-import { users } from 'src/app/shared/IModelProject';
+import { IUsers } from 'src/app/shared/IModelProject';
 import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
 
 @Component({
@@ -12,8 +12,8 @@ import { ProfileModalComponent } from '../profile-modal/profile-modal.component'
 })
 export class HeaderContentComponent implements OnInit {
 
-  @Input() data : users;
-  @Input() dataUsers : users[];
+  @Input() data : IUsers;
+  @Input() dataUsers : IUsers[];
   userId : string;
   showMenuOperation: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute,

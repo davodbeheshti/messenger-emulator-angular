@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Contact, IContactUser, users } from 'src/app/shared/IModelProject';
+import { Contact, IContactUser,  IUsers } from 'src/app/shared/IModelProject';
 import { AddContactComponent } from './add-contact/add-contact.component';
 import * as uuid from 'uuid';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { ProjectService } from 'src/app/services/project.service';
   styleUrls: ['./contacts.component.scss'],
 })
 export class ContactsComponent implements OnInit {
-  contacts: users[] = [];
+  contacts: IUsers[] = [];
 
   constructor(
     private dialogRef: MatDialogRef<ContactsComponent>,

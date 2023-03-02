@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { users, CurentUser } from '../shared/IModelProject';
+import { IUsers, CurentUser } from '../shared/IModelProject';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -7,14 +7,14 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ProjectService {
-  users: users[];
-  currentUser: users;
+  users: IUsers[];
+  currentUser: IUsers;
   constructor(private router: Router) {
     this.users = JSON.parse(localStorage.getItem('users'));
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  clickGetUser = new Subject<users>();
+  clickGetUser = new Subject<IUsers>();
   clickCloseMenu = new Subject();
   clickUpdateUser = new Subject<any>()
   getCurrentUser = new Subject<CurentUser>()
@@ -46,8 +46,8 @@ export class ProjectService {
     this.getCurrentUser.next(user);
   }
 
-  clearHistory(users : users[], itemUser: users) {
-    const user: users = users.find((x) => x.id === itemUser.id);
+  clearHistory(users : IUsers[], itemUser: IUsers) {
+    const user: IUsers = users.find((x) => x.id === itemUser.id);
     user.messages = [];
     user.idLastMessage = '';
     user.lastSendMessage = '';

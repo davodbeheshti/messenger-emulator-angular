@@ -17,7 +17,6 @@ export class ContentComponent implements OnInit {
   sendMessge: string = '';
   messages: IMessages[] = [];
   isEdit: boolean = false;
-  showIconOperationById: string = '';
   pinMessageBox: boolean = false;
   messageBoxPin: string = '';
   viewEditMessage: boolean = false;
@@ -116,13 +115,6 @@ export class ContentComponent implements OnInit {
     // this.addMessage_LS(objMessage);
   };
 
-  public openListOperation = (item, index): any => {
-    if (this.showIconOperationById === item.id) {
-      return (this.showIconOperationById = '');
-    }
-    this.showIconOperationById = item.id;
-  };
-
   public reply = (item, index) => { };
 
   public edit = (item, index) => {
@@ -131,7 +123,6 @@ export class ContentComponent implements OnInit {
     this.isEdit = true;
     this.viewEditMessage = true;
     this.indexItemActiveInEdit = index;
-    this.showIconOperationById = '';
   };
 
   public isEditMessage = () => {
@@ -159,7 +150,6 @@ export class ContentComponent implements OnInit {
     this.isEdit = false;
     this.viewEditMessage = false;
     this.sendMessge = '';
-    this.showIconOperationById = '';
   };
 
   public pin = (item: IMessages, index: number) => {
@@ -170,7 +160,6 @@ export class ContentComponent implements OnInit {
     this.currentUser.pinMessage = item.message;
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     localStorage.setItem('users', JSON.stringify(this.users));
-    this.showIconOperationById = '';
   };
 
   public forward = (item: IMessages, index: number) => {
@@ -181,7 +170,6 @@ export class ContentComponent implements OnInit {
       currentUser: this.currentUser,
       forwardMessage: item,
     };
-    this.showIconOperationById = '';
     const dialogRef = this.dialog.open(ForwardMessageComponent, {
       width: '35%',
       panelClass: 'modal-create-chanel',
@@ -215,7 +203,6 @@ export class ContentComponent implements OnInit {
     this.messages = this.messages.filter((x) => x.id !== item.id);
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     localStorage.setItem('users', JSON.stringify(this.users));
-    this.showIconOperationById = ''
     this.service.updateUsers(this.currentUser);
   };
 

@@ -56,34 +56,6 @@
           color: #bbdaf9;
         }
       }
-      .list-items-operation {
-        position: absolute;
-        width: 25%;
-        border-radius: 5px;
-        overflow: hidden;
-        height: 0;
-        z-index: 423;
-        li {
-          width: 100%;
-          padding: 8px;
-          display: flex;
-          align-items: center;
-          border-radius: 5px;
-          transition: all 0.3s ease;
-          cursor: pointer;
-          &:hover {
-            background: #79bafd7a;
-          }
-          i {
-            color: #d1d1d1;
-            width: 25%;
-          }
-          span {
-            color: white;
-            width: 75%;
-          }
-        }
-      }
       .icon-operation {
         width: 20px;
         display: flex;
@@ -110,14 +82,6 @@
         margin-right: 20px;
         background: #389aff;
       }
-      .list-items-operation {
-        background: #005868;
-        right: 0;
-        top: 100%;
-        border-top-right-radius: 0;
-      }
-      .icon-operation {
-      }
     }
     .systemMessage {
       .box {
@@ -126,13 +90,6 @@
         margin-left: 20px;
         display: flex;
         flex-direction: column;
-      }
-      .list-items-operation {
-        background: #005868;
-        right: -173px;
-        border-top-left-radius: 0;
-      }
-      .icon-operation {
       }
     }
     .date-view {

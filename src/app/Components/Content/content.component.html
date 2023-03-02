@@ -17,8 +17,10 @@
             *ngFor="let item of messages;let i = index;">
             <div class="box">
                 <div class="d-flex">
-                    <span (click)="openListOperation(item , i)" class="icon-operation"><i
-                            class="fa fa-ellipsis-v"></i></span>
+                    <button class="icon-operation" mat-icon-button [matMenuTriggerFor]="menu"
+                        aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
                     <p class="text-white">{{item.message}}</p>
                 </div>
                 <div class="d-flex flex-column">
@@ -32,33 +34,28 @@
                     </p>
                 </div>
             </div>
-            <ul [style]="showIconOperationById === item.id ? 'padding: 8px; height: auto;' : null"
-                class="list-items-operation">
-                <li (click)="reply(item , i)">
-                    <i class="fa fa-reply"></i>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="reply(item , i)">
+                    <mat-icon>reply</mat-icon>
                     <span>Reply</span>
-                </li>
-                <li *ngIf="item.clientMessage && !item.forwarded" (click)="edit(item , i)">
-                    <i class="fa fa-pencil"></i>
+                </button>
+                <button mat-menu-item *ngIf="item.clientMessage && !item.forwarded" (click)="edit(item , i)">
+                    <mat-icon>edit</mat-icon>
                     <span>Edit</span>
-                </li>
-                <li (click)="pin(item , i)">
-                    <i class="fa fa-map-pin"></i>
+                </button>
+                <button mat-menu-item (click)="pin(item , i)">
+                    <mat-icon>pin</mat-icon>
                     <span>Pin</span>
-                </li>
-                <li (click)="forward(item , i)">
-                    <i class="fa fa-forward"></i>
+                </button>
+                <button mat-menu-item (click)="forward(item , i)">
+                    <mat-icon>forward</mat-icon>
                     <span>Forward</span>
-                </li>
-                <li (click)="deleted(item , i)">
-                    <i class="fa fa-trash"></i>
+                </button>
+                <button mat-menu-item (click)="deleted(item , i)">
+                    <mat-icon>delete</mat-icon>
                     <span>Delete</span>
-                </li>
-                <li>
-                    <i class="fa fa-check-circle"></i>
-                    <span>Select</span>
-                </li>
-            </ul>
+                </button>
+            </mat-menu>
         </div>
     </div>
     <!-- [style]="viewEditMessage ? '' : 'height: 6.5%;'" -->

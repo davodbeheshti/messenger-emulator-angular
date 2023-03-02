@@ -5,7 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 let importComponentMaterial = [
   MatDialogModule,
@@ -15,6 +19,8 @@ let importComponentMaterial = [
   MatButtonModule,
   FormsModule,
   ReactiveFormsModule,
+  MatMenuModule,
+  MatIconModule
 ];
 
 let exportedComponent = [...importComponentMaterial];
@@ -24,4 +30,4 @@ let exportedComponent = [...importComponentMaterial];
   imports: [CommonModule, ...importComponentMaterial],
   exports: [...exportedComponent],
 })
-export class SharedModule {}
+export class SharedModule { }

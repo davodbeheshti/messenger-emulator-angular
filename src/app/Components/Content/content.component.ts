@@ -14,7 +14,7 @@ export class ContentComponent implements OnInit {
   currentUser: CurentUser;
   userId: string;
   users: IUsers[] = [];
-  sendMessge: string = '';
+  inputSendMessge: string = '';
   messages: IMessages[] = [];
   isEdit: boolean = false;
   pinMessageBox: boolean = false;
@@ -38,10 +38,11 @@ export class ContentComponent implements OnInit {
     this.pinMessageBox = this.currentUser.pinMessage ? true : false;
     this.messages = this.currentUser.messages;
     console.log(this.messages);
+    // before click on the box users in left Sidebar
     this.service.getCurrentUser.subscribe((data : IUsers) => {
       this.currentUser = data;
       this.messages = data.messages || [];
-      this.sendMessge = '';
+      this.inputSendMessge = '';
       this.messageBoxPin = this.currentUser.pinMessage;
       this.pinMessageBox = this.currentUser.pinMessage ? true : false;
       this.isEdit = false;
@@ -56,7 +57,7 @@ export class ContentComponent implements OnInit {
     const objMessage: IMessages = {
       clientMessage: true,
       id: uuid.v4(),
-      message: this.sendMessge,
+      message: this.inputSendMessge,
       timeMessage: this.timeSystem,
       pin: false,
       forwarded: '',
@@ -88,25 +89,22 @@ export class ContentComponent implements OnInit {
     } else {
       const user = this.users.find((x) => x.id === id);
       ++user.totalCountMessages;
-      ++this.currentUser.totalCountMessages;
       user.lastSendMessage = objMessage.message;
       user.idLastMessage = objMessage.id;
-      this.currentUser.lastSendMessage = objMessage.message;
-      this.currentUser.idLastMessage = objMessage.id;
-      // this.currentUser.messages.push(objMessage);
       this.messages.push(objMessage);
-      user.messages.push(objMessage);
+      user.messages = this.messages;
+      this.currentUser = user;
       localStorage.setItem('users', JSON.stringify(this.users));
       localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
       this.service.updateUsers(user);
     }
-    this.sendMessge = '';
+    this.inputSendMessge = '';
   };
 
   public reply = (item, index) => { };
 
   public edit = (item, index) => {
-    this.sendMessge = item.message;
+    this.inputSendMessge = item.message;
     this.messageBoxEdit = item.message;
     this.isEdit = true;
     this.viewEditMessage = true;
@@ -114,30 +112,30 @@ export class ContentComponent implements OnInit {
   };
 
   public isEditMessage = () => {
-    this.messages[this.indexItemActiveInEdit].message = this.sendMessge;
+    this.messages[this.indexItemActiveInEdit].message = this.inputSendMessge;
     const indexUser = this.users.findIndex(x => x.id === this.currentUser.id);
     // if edit lastSendMessage
     if (this.messages[this.indexItemActiveInEdit].id === this.currentUser.idLastMessage) {
-      this.currentUser.lastSendMessage = this.sendMessge;
-      this.currentUser.messages[this.indexItemActiveInEdit].message = this.sendMessge;
-      this.users[indexUser].lastSendMessage = this.sendMessge;
-      this.users[indexUser].messages[this.indexItemActiveInEdit].message = this.sendMessge;
+      this.currentUser.lastSendMessage = this.inputSendMessge;
+      this.currentUser.messages[this.indexItemActiveInEdit].message = this.inputSendMessge;
+      this.users[indexUser].lastSendMessage = this.inputSendMessge;
+      this.users[indexUser].messages[this.indexItemActiveInEdit].message = this.inputSendMessge;
       this.service.updateUsers(this.currentUser);
     } else {
-      this.currentUser.messages[this.indexItemActiveInEdit].message = this.sendMessge;
+      this.currentUser.messages[this.indexItemActiveInEdit].message = this.inputSendMessge;
       const indexUser = this.users.findIndex(x => x.id === this.currentUser.id);
-      this.users[indexUser].messages[this.indexItemActiveInEdit].message = this.sendMessge;
+      this.users[indexUser].messages[this.indexItemActiveInEdit].message = this.inputSendMessge;
     }
     if (this.pinMessageBox) {
-      this.currentUser.pinMessage = this.sendMessge;
-      this.users[indexUser].pinMessage = this.sendMessge;
-      this.messageBoxPin = this.sendMessge;
+      this.currentUser.pinMessage = this.inputSendMessge;
+      this.users[indexUser].pinMessage = this.inputSendMessge;
+      this.messageBoxPin = this.inputSendMessge;
     }
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     localStorage.setItem('users', JSON.stringify(this.users));
     this.isEdit = false;
     this.viewEditMessage = false;
-    this.sendMessge = '';
+    this.inputSendMessge = '';
   };
 
   public pin = (item: IMessages, index: number) => {
@@ -206,6 +204,6 @@ export class ContentComponent implements OnInit {
   public unViewEditMessage = () => {
     this.viewEditMessage = false;
     this.isEdit = false;
-    this.sendMessge = '';
+    this.inputSendMessge = '';
   };
 }

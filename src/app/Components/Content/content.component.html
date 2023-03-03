@@ -44,7 +44,7 @@
                     <span>Edit</span>
                 </button>
                 <button mat-menu-item (click)="pin(item , i)">
-                    <mat-icon>pin</mat-icon>
+                    <mat-icon>push_pin</mat-icon>
                     <span>Pin</span>
                 </button>
                 <button mat-menu-item (click)="forward(item , i)">
@@ -72,7 +72,7 @@
                 <object data="../../../../assets/svg/attachment.svg" width="30" height="30"> </object>
             </span>
             <div class="send-message">
-                <textarea placeholder="Whrite a message ..." [(ngModel)]="sendMessge"></textarea>
+                <textarea placeholder="Whrite a message ..." [(ngModel)]="inputSendMessge"></textarea>
             </div>
             <div class="icon-right">
                 <span class="style-icon">
@@ -80,7 +80,7 @@
                     <i class="fa fa-smile-o"></i>
                 </span>
                 <div *ngIf="!isEdit; else editMessage">
-                    <span *ngIf="sendMessge.length === 0 ; else send" class="style-icon"><i
+                    <span *ngIf="inputSendMessge.length === 0 ; else send" class="style-icon"><i
                             class="fa fa-headphones"></i></span>
                     <ng-template #send>
                         <span (click)="sendMessage()"><i class="fa fa-paper-plane"></i></span>

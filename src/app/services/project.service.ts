@@ -34,8 +34,6 @@ export class ProjectService {
   }
 
   updateContacts(data: CurentUser) {
-    // const getCurrentUser = JSON.parse(localStorage.getItem('users'));
-    // const user = getCurrentUser.find(user => user.id === data.id);
     localStorage.setItem('currentUser', JSON.stringify(data))
     this.getCurrentUser.next(data);
   }
@@ -64,7 +62,6 @@ export class ProjectService {
     this.currentUser = null;
     localStorage.setItem('users', JSON.stringify(this.users));
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-    // this.updateContacts(this.currentUser)
     this.updateUsers(this.users)
   }
 

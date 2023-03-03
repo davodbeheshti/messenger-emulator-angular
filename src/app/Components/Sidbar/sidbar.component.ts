@@ -14,7 +14,6 @@ import { ProjectService } from '../../services/project.service';
 export class SidbarComponent implements OnInit {
   @Output() clickHanbergerMenu = new EventEmitter();
   users: IUsers[];
-  showMenuOperationById: string = '';
   currentUser: IUsers;
   constructor(private router: Router, private service: ProjectService) { }
 
@@ -37,16 +36,8 @@ export class SidbarComponent implements OnInit {
     this.service.updateContacts(item);
   };
 
-  public clickShowMenuOperation = (item: IUsers, i: number): any => {
-    if (this.showMenuOperationById === item.id) {
-      return (this.showMenuOperationById = '');
-    }
-    this.showMenuOperationById = this.users[i].id;
-  };
-
   public clearHistory = (item: IUsers, i: number) => {
     this.service.clearHistory(this.users , item);
-    this.showMenuOperationById = '';
   };
 
   public deleteChate = (item: IUsers, i: number) => {

@@ -16,21 +16,20 @@
                 </p>
                 <div class="d-flex justify-content-between subTitle-users mb-0">
                     <span class="description-message">{{item.lastSendMessage }}</span>
-                    <span class="icon-operation" (click)="clickShowMenuOperation(item , i)"><i
-                            class="fa fa-ellipsis-v"></i></span>
-                    <ul [style]="showMenuOperationById === item.id ? 'height : 90px;' : null" class="list-items-operation">
-                        <li (click)="clearHistory(item , i)">
-                            <i>
-                                <object style="width : 85%; height: 26px;" data="../../../../assets/svg/broom.svg"
-                                    width="30" height="30"> </object>
-                            </i>
+                    <button class="icon-operation" mat-icon-button [matMenuTriggerFor]="menu"
+                        aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="clearHistory(item , i)">
+                            <mat-icon>cleaning</mat-icon>
                             <span>Clear history</span>
-                        </li>
-                        <li (click)="deleteChate(item , i)">
-                            <i class="fa fa-trash"></i>
+                        </button>
+                        <button mat-menu-item (click)="deleteChate(item , i)">
+                            <mat-icon>delete</mat-icon>
                             <span>Delete chate</span>
-                        </li>
-                    </ul>
+                        </button>
+                    </mat-menu>
                 </div>
             </div>
         </div>

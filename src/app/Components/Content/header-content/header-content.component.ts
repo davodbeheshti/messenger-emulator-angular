@@ -15,13 +15,8 @@ export class HeaderContentComponent implements OnInit {
   @Input() data : IUsers;
   @Input() dataUsers : IUsers[];
   userId : string;
-  showMenuOperation: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute,
     private service: ProjectService, public dialog: MatDialog) { }
-
-  public clickShowMenuOperation = () => {
-    this.showMenuOperation = !this.showMenuOperation;
-  }
 
   ngOnInit(): void {
     // this.userId = this.router.get
@@ -32,7 +27,6 @@ export class HeaderContentComponent implements OnInit {
     if(this.data.totalCountMessages) {
       this.service.clearHistory(this.dataUsers , this.data);
     }
-    this.showMenuOperation = false;
   }
 
   public deleteChate = () => {

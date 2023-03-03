@@ -62,12 +62,10 @@ export class ContentComponent implements OnInit {
       forwarded: '',
     };
     this.addMessage_LS(objMessage);
-    this.sendMessageSystem();
   };
 
   private addMessage_LS = (objMessage) => {
-    const { name, family, id, totalCountMessages, userSystem } =
-      this.currentUser;
+    const { name, family, id, totalCountMessages, userSystem } = this.currentUser;
     if (totalCountMessages === 0 && userSystem === false) {
       const user: IUsers = {
         name,
@@ -103,16 +101,6 @@ export class ContentComponent implements OnInit {
       this.service.updateUsers(user);
     }
     this.sendMessge = '';
-  };
-
-  private sendMessageSystem = () => {
-    const objMessage = {
-      message: 'testMessageSystem',
-      id: uuid.v4(),
-      clientMessage: false,
-      timeMessage: this.timeSystem,
-    };
-    // this.addMessage_LS(objMessage);
   };
 
   public reply = (item, index) => { };

@@ -9,17 +9,15 @@
         <span>
             <i class="fa fa-search"></i>
         </span>
-        <input type="text" class="form-control" placeholder="search">
+        <input type="text" class="form-control" placeholder='search' [(ngModel)]="searchValue" (input)="searchEvent()" />
     </section>
 
     <section class="section-ursers mt-3">
-        <div class="user d-flex align-items-center mt-2" *ngFor="let item of contacts; let i = index" (click)="userActive(item)">
+        <div class="user d-flex align-items-center mt-2" *ngFor="let item of contacts; let i = index"
+            (click)="userActive(item)">
             <img src="../../../../../assets/img/user.png" class="img-user" alt="">
             <div class="specific-user ml-3">
                 <p class="name-user mb-0">{{item.name}}</p>
-                <!-- <p class="date-online mb-0">
-                    {{item.onlineDate}}
-                </p> -->
             </div>
         </div>
 

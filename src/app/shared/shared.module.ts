@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { FilterSearchListPipe } from './filter-search-list.pipe';
 
 
 
@@ -26,7 +27,9 @@ let importComponentMaterial = [
 let exportedComponent = [...importComponentMaterial];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FilterSearchListPipe
+  ],
   imports: [CommonModule, ...importComponentMaterial],
   exports: [...exportedComponent],
 })

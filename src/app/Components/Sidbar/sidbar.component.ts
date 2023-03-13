@@ -15,6 +15,7 @@ export class SidbarComponent implements OnInit {
   @Output() clickHanbergerMenu = new EventEmitter();
   users: IUsers[];
   currentUser: IUsers;
+  filterSearch : string = '';
   constructor(private router: Router, private service: ProjectService) { }
 
   ngOnInit(): void {

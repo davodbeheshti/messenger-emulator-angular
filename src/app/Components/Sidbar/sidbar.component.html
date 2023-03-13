@@ -3,11 +3,11 @@
         <span class="mr-2" (click)="openLeftMenu()">
             <i class="fa fa-bars"></i>
         </span>
-        <input type="text" placeholder="search" class="form-control ml-2">
+        <input type="text" placeholder="search" [(ngModel)]="filterSearch" class="form-control ml-2">
     </div>
 
     <div class="users">
-        <div class="list-users" *ngFor="let item of users; let i = index;" (click)="clickBoxUser(item , i)">
+        <div class="list-users" *ngFor="let item of users | filterSearchList:filterSearch; let i = index;" (click)="clickBoxUser(item , i)">
             <img src="../../../assets/img/photo_2021-10-12_23-38-06.jpg" alt="">
             <div class="section-texts">
                 <p class="d-flex justify-content-between title-users">

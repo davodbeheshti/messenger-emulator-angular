@@ -9,11 +9,11 @@
         <span>
             <i class="fa fa-search"></i>
         </span>
-        <input type="text" class="form-control" placeholder='search' [(ngModel)]="searchValue" (input)="searchEvent()" />
+        <input type="text" class="form-control" placeholder='search' [(ngModel)]="searchValue"/>
     </section>
 
     <section class="section-ursers mt-3">
-        <div class="user d-flex align-items-center mt-2" *ngFor="let item of contacts; let i = index"
+        <div class="user d-flex align-items-center mt-2" *ngFor="let item of contacts | filterSearchList:searchValue; let i = index"
             (click)="userActive(item)">
             <img src="../../../../../assets/img/user.png" class="img-user" alt="">
             <div class="specific-user ml-3">

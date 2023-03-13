@@ -47,8 +47,6 @@ export class ContactsComponent implements OnInit {
     this.dialogRef.close();
   };
 
-  public searchEvent = () => {}
-
   public closeDialog = () => {
     this.close();
   };

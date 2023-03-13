@@ -5,8 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterSearchListPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
+  transform(items: any[], filter: Object): any {
+    if (!items || !filter) {
+        return items;
+    }
+    return items.filter(item => item.name.indexOf(filter) !== -1);
+}
+
 
 }

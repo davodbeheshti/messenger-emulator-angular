@@ -12,7 +12,7 @@ import { FilterSearchListPipe } from './filter-search-list.pipe';
 
 
 
-let importComponentMaterial = [
+const importComponentMaterial = [
   MatDialogModule,
   MatFormFieldModule,
   MatListModule,
@@ -24,11 +24,13 @@ let importComponentMaterial = [
   MatIconModule
 ];
 
-let exportedComponent = [...importComponentMaterial];
+const pipes = [FilterSearchListPipe]
+
+const exportedComponent = [...importComponentMaterial, ...pipes];
 
 @NgModule({
   declarations: [
-    FilterSearchListPipe
+    ...pipes
   ],
   imports: [CommonModule, ...importComponentMaterial],
   exports: [...exportedComponent],

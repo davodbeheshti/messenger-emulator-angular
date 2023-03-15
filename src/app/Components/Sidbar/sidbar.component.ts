@@ -12,7 +12,7 @@ import { ProjectService } from '../../services/project.service';
   styleUrls: ['./sidbar.component.scss'],
 })
 export class SidbarComponent implements OnInit {
-  @Output() clickHanbergerMenu = new EventEmitter();
+  @Output() clickHanbergerMenu = new EventEmitter(); 
   users: IUsers[];
   currentUser: IUsers;
   filterSearch : string = '';

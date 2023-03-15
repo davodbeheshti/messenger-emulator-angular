@@ -16,7 +16,7 @@ export class SidbarComponent implements OnInit {
   users: IUsers[];
   currentUser: IUsers;
   filterSearch : string = '';
-  constructor(private router: Router, private service: ProjectService) { }
+  constructor(private router: Router, private service: ProjectService) { } 
 
   ngOnInit(): void {
     this.users = JSON.parse(localStorage.getItem('users'));

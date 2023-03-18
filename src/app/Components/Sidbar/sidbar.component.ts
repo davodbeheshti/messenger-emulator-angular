@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material/dialog';
 import { IMessages } from '../../shared/IModelProject';
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
@@ -5,6 +6,7 @@ import { Router } from '@angular/router';
 import { IUsers } from 'src/app/shared/IModelProject';
 
 import { ProjectService } from '../../services/project.service';
+import { DialogConfirmComponent } from 'src/app/shared/dialog-confirm/dialog-confirm.component';
 
 @Component({
   selector: 'app-sidbar',
@@ -12,11 +14,11 @@ import { ProjectService } from '../../services/project.service';
   styleUrls: ['./sidbar.component.scss'],
 })
 export class SidbarComponent implements OnInit {
-  @Output() clickHanbergerMenu = new EventEmitter(); 
+  @Output() clickHanbergerMenu = new EventEmitter();
   users: IUsers[];
   currentUser: IUsers;
-  filterSearch : string = '';
-  constructor(private router: Router, private service: ProjectService) { } 
+  filterSearch: string = '';
+  constructor(private router: Router, private service: ProjectService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.users = JSON.parse(localStorage.getItem('users'));
@@ -38,16 +40,13 @@ export class SidbarComponent implements OnInit {
   };
 
   public clearHistory = (item: IUsers, i: number) => {
-    this.service.clearHistory(this.users , item);
+    this.service.clearHistory(this.users, item);
   };
 
   public deleteChate = (item: IUsers, i: number) => {
-    this.service.deleteChate(item);
-    this.router.navigate(['/']);
-    // this.users = this.users.filter((x) => x.id !== item.id);
-    // this.currentUser = null;
-    // localStorage.setItem('users', JSON.stringify(this.users));
-    // localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-    // this.router.navigate(['/']);
+    this.dialog.open(DialogConfirmComponent, {
+      width: '250px',
+      data: item
+    });
   };
 }

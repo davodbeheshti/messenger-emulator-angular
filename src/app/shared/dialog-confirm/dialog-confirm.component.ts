@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dialog-confirm',
@@ -7,5 +7,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 export class DialogConfirmComponent implements OnInit {
 
- 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

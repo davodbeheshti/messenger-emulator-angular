@@ -22,17 +22,19 @@ const importComponentMaterial = [
   MatMenuModule,
   MatIconModule
 ];
-
 const pipes = [FilterSearchListPipe]
 
-const exportedComponent = [...importComponentMaterial, ...pipes];
+const declearComponent = [DialogConfirmComponent]
+const exportedComponent = [...pipes , ...declearComponent];
+
+
 
 @NgModule({
   declarations: [
     ...pipes,
-    DialogConfirmComponent
+    ...declearComponent
   ],
   imports: [CommonModule, ...importComponentMaterial],
-  exports: [...exportedComponent],
+  exports: [...exportedComponent , ...importComponentMaterial],
 })
 export class SharedModule { }

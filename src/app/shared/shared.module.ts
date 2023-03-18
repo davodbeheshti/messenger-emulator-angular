@@ -10,8 +10,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterSearchListPipe } from './filter-search-list.pipe';
 
-  
- 
 const importComponentMaterial = [
   MatDialogModule,
   MatFormFieldModule,

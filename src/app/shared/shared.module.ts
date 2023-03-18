@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterSearchListPipe } from './filter-search-list.pipe';
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 
 const importComponentMaterial = [
   MatDialogModule,
@@ -21,16 +22,19 @@ const importComponentMaterial = [
   MatMenuModule,
   MatIconModule
 ];
-
 const pipes = [FilterSearchListPipe]
 
-const exportedComponent = [...importComponentMaterial, ...pipes];
+const declearComponent = [DialogConfirmComponent]
+const exportedComponent = [...pipes , ...declearComponent];
+
+
 
 @NgModule({
   declarations: [
-    ...pipes
+    ...pipes,
+    ...declearComponent
   ],
   imports: [CommonModule, ...importComponentMaterial],
-  exports: [...exportedComponent],
+  exports: [...exportedComponent , ...importComponentMaterial],
 })
 export class SharedModule { }

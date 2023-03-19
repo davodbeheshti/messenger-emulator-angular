@@ -22,5 +22,5 @@ export class DialogConfirmComponent implements OnInit {
     this.service.deleteChate(this.data);
     this.router.navigate(['/']);
   }
-
+ 
 }

@@ -13,7 +13,7 @@ export class DialogConfirmComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<DialogConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) private data, private service: ProjectService , private router : Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     console.log(this.dialogRef);
     console.log(this.data);
   }

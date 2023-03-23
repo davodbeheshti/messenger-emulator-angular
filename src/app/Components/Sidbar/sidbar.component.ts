@@ -46,7 +46,10 @@ export class SidbarComponent implements OnInit {
   public deleteChate = (item: IUsers, i: number) => {
     this.dialog.open(DialogConfirmComponent, {
       width: '250px',
-      data: item
+      data: {
+        key : "removeUser",
+        data : item,
+      }
     });
   };
 }

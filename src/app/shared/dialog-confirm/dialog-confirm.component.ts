@@ -10,17 +10,33 @@ import { MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/materia
 })
 export class DialogConfirmComponent implements OnInit {
 
+  key : string = '';
+  dataUser;
+  dataMessage;
+
   constructor(private dialogRef: MatDialogRef<DialogConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) private data, private service: ProjectService , private router : Router) { }
 
   ngOnInit(): void { 
     console.log(this.dialogRef);
     console.log(this.data);
+    const {key , data} = this.data;
+    this.key = key;
+    if(key === 'removeUser') {
+      this.dataUser = data;
+    }else {
+      this.dataMessage = data;
+    }
   }
 
-  okConfirm() { 
+  yes_confirmRemoveUser = () => { 
     this.service.deleteChate(this.data);
     this.router.navigate(['/']);
+    this.dialogRef.close()
+  }
+
+  yes_confirmRemoveMessage = () => {
+    this.dialogRef.close()
   }
  
 }

@@ -1,5 +1,5 @@
 <div class="dialog-configm-component">
-    <div *ngIf="key === 'removeUser'">
+    <div *ngIf="key === 'removeUser'; else removeMessage">
       <h1 mat-dialog-title>Delete User</h1>
       <div mat-dialog-content>
         Delete the user named <span class="text-danger">{{dataUser?.name + " " + dataUser?.family}}</span> ?
@@ -13,7 +13,7 @@
     <ng-template #removeMessage>
       <h1 mat-dialog-title>Delete Message</h1>
       <div mat-dialog-content>
-        Delete this message _____?
+        Delete this message <span class="text-danger">{{dataMessage?.message}}</span> ?
       </div>
       <div mat-dialog-actions>
         <button mat-button mat-dialog-close cdkFocusInitial>No</button>

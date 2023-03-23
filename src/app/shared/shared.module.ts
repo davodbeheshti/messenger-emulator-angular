@@ -11,8 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { FilterSearchListPipe } from './filter-search-list.pipe';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 
-
-
 const importComponentMaterial = [
   MatDialogModule,
   MatFormFieldModule,
@@ -24,17 +22,19 @@ const importComponentMaterial = [
   MatMenuModule,
   MatIconModule
 ];
-
 const pipes = [FilterSearchListPipe]
 
-const exportedComponent = [...importComponentMaterial, ...pipes];
+const declearComponent = [DialogConfirmComponent]
+const exportedComponent = [...pipes , ...declearComponent];
+
+
 
 @NgModule({
   declarations: [
     ...pipes,
-    DialogConfirmComponent
+    ...declearComponent
   ],
   imports: [CommonModule, ...importComponentMaterial],
-  exports: [...exportedComponent],
+  exports: [...exportedComponent , ...importComponentMaterial],
 })
 export class SharedModule { }

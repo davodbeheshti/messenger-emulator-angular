@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterSearchListPipe } from './filter-search-list.pipe';
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 
 
 
@@ -30,7 +31,8 @@ const exportedComponent = [...importComponentMaterial, ...pipes];
 
 @NgModule({
   declarations: [
-    ...pipes
+    ...pipes,
+    DialogConfirmComponent
   ],
   imports: [CommonModule, ...importComponentMaterial],
   exports: [...exportedComponent],

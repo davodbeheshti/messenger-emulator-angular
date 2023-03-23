@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 import * as uuid from 'uuid';
 import { ForwardMessageComponent } from './forward-message/forward-message.component';
+import { DialogConfirmComponent } from 'src/app/shared/dialog-confirm/dialog-confirm.component';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -164,6 +165,14 @@ export class ContentComponent implements OnInit {
   };
 
   public deleted = (item: IMessages, index: number) => {
+    this.dialog.open(DialogConfirmComponent, {
+      width: '250px',
+      data: {
+        key : "removeMessage",
+        data : item,
+      }
+    });
+
     const messageIndex = this.currentUser.messages.findIndex(
       (x) => x.id === item.id
     );

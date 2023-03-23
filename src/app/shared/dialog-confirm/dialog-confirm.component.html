@@ -1,8 +1,23 @@
-<h1 mat-dialog-title>Delete file</h1>
-<div mat-dialog-content>
-  Would you like to delete cat.jpeg?
-</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close cdkFocusInitial>No</button>
-  <button mat-button mat-dialog-close (click)="okConfirm()">Ok</button>
-</div>
+<div class="dialog-configm-component">
+    <div *ngIf="key === 'removeUser'">
+      <h1 mat-dialog-title>Delete User</h1>
+      <div mat-dialog-content>
+        Delete the user named <span class="text-danger">{{dataUser?.name + " " + dataUser?.family}}</span> ?
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button mat-dialog-close cdkFocusInitial>No</button>
+        <button mat-button mat-dialog-close (click)="yes_confirmRemoveUser()">Ok</button>
+      </div>
+    </div>
+  
+    <ng-template #removeMessage>
+      <h1 mat-dialog-title>Delete Message</h1>
+      <div mat-dialog-content>
+        Delete this message _____?
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button mat-dialog-close cdkFocusInitial>No</button>
+        <button mat-button (click)="yes_confirmRemoveMessage()">Ok</button>
+      </div>
+    </ng-template>
+  </div>
